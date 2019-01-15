@@ -15,10 +15,6 @@ Each pattern includes two examples:
 
 TODO: fill this up
 
-## Roadmap
-
-TODO: fill this up
-
 
 ## FAQ
 
