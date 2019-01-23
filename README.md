@@ -8,7 +8,7 @@ Each pattern includes two examples:
 
 - **Structural** examples show the internal structure of patterns, including detailed comments.
 
-- **RealWorld** examples show how patterns can be used in real-world PHP applications.
+- **RealWorld** examples show how patterns can be used in real-world Python applications.
 
 
 ## Requirements
