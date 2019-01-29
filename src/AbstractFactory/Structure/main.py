@@ -12,34 +12,34 @@ class AbstractFactory(metaclass=ABCMeta):
 
 
 class ConcreteFactory1(AbstractFactory):
-    def create_product_a(self):
+    def create_product_a(self) -> 'ConcreteProductA1':
         return ConcreteProductA1()
 
-    def create_product_b(self):
+    def create_product_b(self) -> 'ConcreteProductB1':
         return ConcreteProductB1()
 
 
 class ConcreteFactory2(AbstractFactory):
-    def create_product_a(self):
+    def create_product_a(self) -> 'ConcreteProductA2':
         return ConcreteProductA2()
 
-    def create_product_b(self):
+    def create_product_b(self) -> 'ConcreteProductB2':
         return ConcreteProductB2()
 
 
 class AbstractProductA(metaclass=ABCMeta):
     @abstractmethod
-    def useful_function_a(self):
+    def useful_function_a(self) -> str:
         pass
 
 
 class ConcreteProductA1(AbstractProductA):
-    def useful_function_a(self):
+    def useful_function_a(self) -> str:
         return "The result of the product A1."
 
 
 class ConcreteProductA2(AbstractProductA):
-    def useful_function_a(self):
+    def useful_function_a(self) -> str:
         return "The result of the product A2."
 
 
@@ -49,15 +49,15 @@ class AbstractProductB(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def another_useful_function_b(self, abstract_product_a):
+    def another_useful_function_b(self, abstract_product_a: AbstractProductA):
         pass
 
 
 class ConcreteProductB1(AbstractProductB):
-    def useful_function_b(self):
+    def useful_function_b(self) -> str:
         return "The result of the product B1."
 
-    def another_useful_function_b(self, abstract_product_a):
+    def another_useful_function_b(self, abstract_product_a: AbstractProductA):
         result = abstract_product_a.useful_function_a()
         return f"The result of the B1 collaborating with the ({result})"
 
@@ -66,7 +66,7 @@ class ConcreteProductB2(AbstractProductB):
     def useful_function_b(self):
         return "The result of the product B2."
 
-    def another_useful_function_b(self, abstract_product_a):
+    def another_useful_function_b(self, abstract_product_a: AbstractProductA):
         result = abstract_product_a.useful_function_a()
         return f"The result of the B2 collaborating with the ({result})"
 
