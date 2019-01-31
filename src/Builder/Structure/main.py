@@ -189,7 +189,7 @@ class Director:
         self.builder.produce_part_c()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     EN: The client code creates a builder object, passes it to the director and
     then initiates the construction process. The end result is retrieved from the

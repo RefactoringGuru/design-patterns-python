@@ -77,7 +77,7 @@ class ComponentWithBackReference:
         self._prototype = value
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     EN: The client code.
 
