@@ -27,19 +27,19 @@ class Builder(metaclass=ABCMeta):
     """
 
     @abstractproperty
-    def product(self):
+    def product(self) -> None:
         pass
 
     @abstractmethod
-    def produce_part_a(self):
+    def produce_part_a(self) -> None:
         pass
 
     @abstractmethod
-    def produce_part_b(self):
+    def produce_part_b(self) -> None:
         pass
 
     @abstractmethod
-    def produce_part_c(self):
+    def produce_part_c(self) -> None:
         pass
 
 
@@ -65,7 +65,7 @@ class ConcreteBuilder1(Builder):
         """
         self.reset()
 
-    def reset(self):
+    def reset(self) -> None:
         self._product = Product1()
 
     @property
@@ -102,13 +102,13 @@ class ConcreteBuilder1(Builder):
         self.reset()
         return product
 
-    def produce_part_a(self):
+    def produce_part_a(self) -> None:
         self._product.add("PartA1")
 
-    def produce_part_b(self):
+    def produce_part_b(self) -> None:
         self._product.add("PartB1")
 
-    def produce_part_c(self):
+    def produce_part_c(self) -> None:
         self._product.add("PartC1")
 
 
@@ -132,10 +132,10 @@ class Product1(object):
     def __init__(self):
         self.parts = []
 
-    def add(self, part: Any):
+    def add(self, part: Any) -> None:
         self.parts.append(part)
 
-    def list_parts(self):
+    def list_parts(self) -> None:
         print(f"Product parts: {', '.join(self.parts)}", end="")
 
 
@@ -160,7 +160,7 @@ class Director:
         return self._builder
 
     @builder.setter
-    def builder(self, builder: Builder):
+    def builder(self, builder: Builder) -> None:
         """
         EN: The Director works with any builder instance that the client code
         passes to it. This way, the client code may alter the final type of the
@@ -180,10 +180,10 @@ class Director:
     одинаковые шаги построения.
     """
 
-    def build_minimal_viable_product(self):
+    def build_minimal_viable_product(self) -> None:
         self.builder.produce_part_a()
 
-    def build_full_featured_product(self):
+    def build_full_featured_product(self) -> None:
         self.builder.produce_part_a()
         self.builder.produce_part_b()
         self.builder.produce_part_c()
