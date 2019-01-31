@@ -27,7 +27,7 @@ class Singleton:
     _instance = None  # Optional[Singleton]
 
     def __init__(self):
-        if Singleton._instance != None:
+        if Singleton._instance is not None:
             raise ReferenceError("Cannot instantiate a singleton class.")
         else:
             Singleton._instance = self
