@@ -118,7 +118,7 @@ class AbstractProductB(metaclass=ABCMeta):
     одной и той же конкретной вариации.
     """
     @abstractmethod
-    def useful_function_b(self):
+    def useful_function_b(self) -> None:
         """
         EN: Product B is able to do its own thing...
 
@@ -127,7 +127,7 @@ class AbstractProductB(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def another_useful_function_b(self, collaborator: AbstractProductA):
+    def another_useful_function_b(self, collaborator: AbstractProductA) -> None:
         """
         EN: ...but it also can collaborate with the ProductA.
 
@@ -163,13 +163,13 @@ class ConcreteProductB1(AbstractProductB):
     аргумента.
     """
 
-    def another_useful_function_b(self, collaborator: AbstractProductA):
+    def another_useful_function_b(self, collaborator: AbstractProductA) -> str:
         result = collaborator.useful_function_a()
         return f"The result of the B1 collaborating with the ({result})"
 
 
 class ConcreteProductB2(AbstractProductB):
-    def useful_function_b(self):
+    def useful_function_b(self) -> str:
         return "The result of the product B2."
 
     def another_useful_function_b(self, collaborator: AbstractProductA):
@@ -197,7 +197,7 @@ RU: Клиентский код работает с фабриками и про
 """
 
 
-def client_code(factory):
+def client_code(factory: AbstractFactory) -> None:
     product_a = factory.create_product_a()
     product_b = factory.create_product_b()
 
