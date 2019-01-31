@@ -28,7 +28,7 @@ class Prototype:
         return self._primitive
 
     @primitive.setter
-    def primitive(self, value: Any):
+    def primitive(self, value: Any) -> None:
         self._primitive = value
 
     @property
@@ -36,7 +36,7 @@ class Prototype:
         return self._component
 
     @component.setter
-    def component(self, value: object):
+    def component(self, value: object) -> None:
         self._component = value
 
     @property
@@ -44,7 +44,7 @@ class Prototype:
         return self._circular_reference
 
     @circular_reference.setter
-    def circular_reference(self, value: ComponentWithBackReference):
+    def circular_reference(self, value: ComponentWithBackReference) -> None:
         self._circular_reference = value
 
     def clone(self) -> Prototype:
@@ -61,7 +61,6 @@ class Prototype:
         # исходный объект.
         self.circular_reference = deepcopy(self.circular_reference)
         self.circular_reference.prototype = self
-
         return deepcopy(self)
 
 
@@ -74,7 +73,7 @@ class ComponentWithBackReference:
         return self._prototype
 
     @prototype.setter
-    def prototype(self, value: Prototype):
+    def prototype(self, value: Prototype) -> None:
         self._prototype = value
 
 
