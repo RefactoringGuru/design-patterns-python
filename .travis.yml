@@ -1,0 +1,12 @@
+language: python
+sudo: false
+dist: xenial
+cache: pip
+python:
+    - '3.7'
+    # for the future...
+    # - '3.7-dev' 
+    # - '3.8-dev'
+install: pip install pycodestyle
+script:
+  - make codestyle-check
