@@ -1,5 +1,5 @@
 codestyle-check:
-	find . -name \*.py -exec pycodestyle --max-line-length=200 --ignore=W293 --count {} +
+	find . -name \*.py -exec pycodestyle --config=setup.cfg {} +
 	
 init:
 	sudo pip install -r requirements.txt
