@@ -1,5 +1,20 @@
+"""
+EN: Prototype Design Pattern
+
+Intent: Produce new objects by copying existing ones without compromising
+their internal structure.
+
+RU: Паттерн Прототип
+
+Назначение: Создаёт новые объекты, копируя существующие без нарушения их
+внутренней структуры.
+"""
+
+
+from __future__ import annotations
 from datetime import datetime
-import copy
+from copy import deepcopy
+from typing import Any
 
 
 class Prototype:
@@ -9,50 +24,66 @@ class Prototype:
         self._circular_reference = None
 
     @property
-    def primitive(self):
+    def primitive(self) -> Any:
         return self._primitive
 
     @primitive.setter
-    def primitive(self, value):
+    def primitive(self, value: Any):
         self._primitive = value
 
     @property
-    def component(self):
+    def component(self) -> object:
         return self._component
 
     @component.setter
-    def component(self, value):
+    def component(self, value: object):
         self._component = value
 
     @property
-    def circular_reference(self):
+    def circular_reference(self) -> ComponentWithBackReference:
         return self._circular_reference
 
     @circular_reference.setter
-    def circular_reference(self, value):
+    def circular_reference(self, value: ComponentWithBackReference):
         self._circular_reference = value
 
-    def clone(self):
-        self.component = copy.deepcopy(self.component)
-        self.circular_reference = copy.deepcopy(self.circular_reference)
+    def clone(self) -> Prototype:
+        self.component = deepcopy(self.component)
+
+        # EN: Cloning an object that has a nested object with backreference
+        # requires special treatment. After the cloning is completed, the
+        # nested object should point to the cloned object, instead of the
+        # original object.
+        #
+        # RU: Клонирование объекта, который имеет вложенный объект с обратной
+        # ссылкой, требует специального подхода. После завершения клонирования
+        # вложенный объект должен указывать на клонированный объект, а не на
+        # исходный объект.
+        self.circular_reference = deepcopy(self.circular_reference)
         self.circular_reference.prototype = self
-        return copy.deepcopy(self)
+
+        return deepcopy(self)
 
 
 class ComponentWithBackReference:
-    def __init__(self, prototype):
+    def __init__(self, prototype: Prototype):
         self._prototype = prototype
 
     @property
-    def prototype(self):
+    def prototype(self) -> Prototype:
         return self._prototype
 
     @prototype.setter
-    def prototype(self, value):
+    def prototype(self, value: Prototype):
         self._prototype = value
 
 
 if __name__ == '__main__':
+    """
+    EN: The client code.
+
+    RU: Клиентский код.
+    """
     p1 = Prototype()
     p1.primitive = 245
     p1.component = datetime.now()
