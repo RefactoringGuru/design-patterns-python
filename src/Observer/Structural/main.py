@@ -59,7 +59,7 @@ class Observer(ABC):
 
 
 class ConcreteSubject(Subject):
-    _state = None  # int
+    _state: int = None
     """
      EN: For the sake of simplicity, the Subject's state, essential
      to all subscribers, is stored in this variable.
@@ -68,7 +68,7 @@ class ConcreteSubject(Subject):
      необходимое всем подписчикам.
     """
 
-    _observers = []  # List[Observer]
+    _observers: List[Observer] = []
     """
     EN: List of subscribers. In real life, the list of subscribers
     can be stored more comprehensively (categorized by event type, etc.).

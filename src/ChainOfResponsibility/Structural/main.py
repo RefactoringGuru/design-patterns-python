@@ -45,17 +45,17 @@ class AbstractHandler(Handler):
     класса обработчика.
     """
 
-    _next_handler = None  # Handler
+    _next_handler: Handler = None
 
     def set_next(self, handler: Handler) -> Handler:
         self._next_handler = handler
         # EN: Returning a handler from here will let us link handlers in a
         # convenient way like this:
-        # $monkey->set_next($squirrel)->set_next($dog);
+        # monkey.set_next(squirrel).set_next(dog)
         #
         # RU: Возврат обработчика отсюда позволит связать обработчики простым
         # способом, вот так:
-        # $monkey->set_next($squirrel)->set_next($dog);
+        # monkey.set_next(squirrel).set_next(dog)
         return handler
 
     @abstractmethod

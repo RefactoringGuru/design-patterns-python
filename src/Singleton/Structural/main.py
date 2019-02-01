@@ -24,7 +24,7 @@ class Singleton:
     клиентам получить доступ к уникальному экземпляру одиночки.
     """
 
-    _instance = None  # Optional[Singleton]
+    _instance: Optional[Singleton] = None
 
     def __init__(self) -> None:
         if Singleton._instance is not None:

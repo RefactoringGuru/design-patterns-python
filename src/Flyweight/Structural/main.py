@@ -52,7 +52,7 @@ class FlyweightFactory():
     если он ещё не существует.
     """
 
-    _flyweights = {}  # Dict[str, Flyweight]
+    _flyweights: Dict[str, Flyweight] = {}
 
     def __init__(self, initial_flyweights: Dict) -> None:
         for state in initial_flyweights:

@@ -123,7 +123,7 @@ class Composite(Component):
     """
 
     def __init__(self) -> None:
-        self._children = []  # List[Component]
+        self._children: List[Component] = []
 
     """
     EN: A composite object can add or remove other components (both simple or
