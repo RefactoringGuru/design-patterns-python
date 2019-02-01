@@ -19,7 +19,7 @@ from random import sample
 from string import ascii_letters, digits
 
 
-class Originator(object):
+class Originator():
     """
     EN: The Originator holds some important state that may change over time. It
     also defines a method for saving the state inside a memento and another
@@ -128,7 +128,7 @@ class ConcreteMemento(Memento):
         return self._date
 
 
-class Caretaker(object):
+class Caretaker():
     """
     EN: The Caretaker doesn't depend on the Concrete Memento class. Therefore, it
     doesn't have access to the originator's state, stored inside the memento. It
