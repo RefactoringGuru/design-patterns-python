@@ -54,7 +54,7 @@ class Decorator(Component):
     инициализации.
     """
 
-    _component = None  # Component
+    _component: Component = None
 
     def __init__(self, component: Component) -> None:
         self._component = component

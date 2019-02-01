@@ -46,14 +46,14 @@ class AlphabeticalOrderIterator(Iterator):
     быть множество других полей для хранения состояния итерации, особенно когда
     он должен работать с определённым типом коллекции.
     """
-    _position = None
+    _position: int = None
 
     """
     EN: This attribute indicates the traversal direction.
     
     RU: Этот атрибут указывает направление обхода.
     """
-    _reverse = False
+    _reverse: bool = False
 
     def __init__(self, collection: WordsCollection, reverse: bool = False) -> None:
         self._collection = collection
