@@ -144,7 +144,7 @@ RU: Клиентский код работает с экземпляром ко�
 """
 
 
-def client_code(creator) -> None:
+def client_code(creator: Creator) -> None:
     print(f"Client: I'm not aware of the creator's class, but it still works.\n{creator.some_operation()}", end="")
 
 
