@@ -23,7 +23,7 @@ python src/Path-to-example/main.py
 
 For the best experience, I recommend working with examples with these IDEs:
 
-- [PHPStorm](https://www.jetbrains.com/pycharm/)
+- [PyCharm](https://www.jetbrains.com/pycharm/)
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## FAQ
