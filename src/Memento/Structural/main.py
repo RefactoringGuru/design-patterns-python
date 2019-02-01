@@ -13,7 +13,7 @@ RU: Паттерн Снимок
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 from datetime import datetime
 from random import sample
 from string import ascii_letters, digits
@@ -81,7 +81,7 @@ class Originator():
         print(f"Originator: My state has changed to: {self._state}")
 
 
-class Memento(metaclass=ABCMeta):
+class Memento(ABC):
     """
     EN: The Memento interface provides a way to retrieve the memento's metadata,
     such as creation date or name. However, it doesn't expose the Originator's

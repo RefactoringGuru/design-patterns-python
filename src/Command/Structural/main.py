@@ -14,10 +14,10 @@ RU: Паттерн Команда
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Command(metaclass=ABCMeta):
+class Command(ABC):
     """
     EN: The Command interface declares a method for executing a command.
 

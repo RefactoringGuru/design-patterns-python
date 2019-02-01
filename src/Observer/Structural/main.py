@@ -25,12 +25,12 @@ RU: Паттерн Наблюдатель
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 from random import randrange
 from typing import List
 
 
-class Subject(metaclass=ABCMeta):
+class Subject(ABC):
     """
     EN: The Subject owns some important state and notifies observers when the
     state changes.
@@ -52,7 +52,7 @@ class Subject(metaclass=ABCMeta):
         pass
 
 
-class Observer(metaclass=ABCMeta):
+class Observer(ABC):
     @abstractmethod
     def update(self, subject: Subject) -> None:
         pass

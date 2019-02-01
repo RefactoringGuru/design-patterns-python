@@ -13,10 +13,10 @@ RU: Паттерн Шаблонный метод
 """
 
 
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class AbstractClass(metaclass=ABCMeta):
+class AbstractClass(ABC):
     """
     EN: The Abstract Class defines a template method that contains a skeleton of
     some algorithm, composed of calls to (usually) abstract primitive operations.

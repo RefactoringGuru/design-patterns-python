@@ -15,10 +15,10 @@
 
 
 from __future__ import annotations
-from abc import ABCMeta
+from abc import ABC
 
 
-class Mediator(metaclass=ABCMeta):
+class Mediator(ABC):
     """
     EN: The Mediator interface declares a method used by components to notify the
     mediator about various events. The Mediator may react to these events and

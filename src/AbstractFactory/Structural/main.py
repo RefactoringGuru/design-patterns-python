@@ -12,10 +12,10 @@ RU: Паттерн Абстрактная Фабрика
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class AbstractFactory(metaclass=ABCMeta):
+class AbstractFactory(ABC):
     """
     EN: The Abstract Factory interface declares a set of methods that return
     different abstract products. These products are called a family and are
@@ -84,7 +84,7 @@ RU: Каждый отдельный продукт семейства проду
 """
 
 
-class AbstractProductA(metaclass=ABCMeta):
+class AbstractProductA(ABC):
     @abstractmethod
     def useful_function_a(self) -> str:
         pass
@@ -107,7 +107,7 @@ class ConcreteProductA2(AbstractProductA):
         return "The result of the product A2."
 
 
-class AbstractProductB(metaclass=ABCMeta):
+class AbstractProductB(ABC):
     """
     EN: Here's the the base interface of another product. All products can interact with
     each other, but proper interaction is possible only between products of the

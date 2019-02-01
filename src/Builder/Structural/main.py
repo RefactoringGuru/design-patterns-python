@@ -13,11 +13,11 @@ RU: Паттерн Строитель
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod, abstractproperty
 from typing import Any
 
 
-class Builder(metaclass=ABCMeta):
+class Builder(ABC):
     """
     EN: The Builder interface specifies methods for creating the different parts
     of the Product objects.

@@ -12,10 +12,10 @@ RU: Паттерн Заместитель
 """
 
 
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Subject(metaclass=ABCMeta):
+class Subject(ABC):
     """
     EN: The Subject interface declares common operations for both RealSubject and
     the Proxy. As long as the client works with RealSubject using this interface,

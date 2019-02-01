@@ -12,10 +12,10 @@ RU: Паттерн Состояние
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Context(metaclass=ABCMeta):
+class Context(ABC):
     """
     EN: The Context defines the interface of interest to clients. It also
     maintains a reference to an instance of a State subclass, which represents
@@ -62,7 +62,7 @@ class Context(metaclass=ABCMeta):
         self._state.handle2()
 
 
-class State(metaclass=ABCMeta):
+class State(ABC):
     """
     EN: The base State class declares methods that all Concrete State should
     implement and also provides a backreference to the Context object, associated

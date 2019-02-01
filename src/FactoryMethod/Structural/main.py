@@ -14,10 +14,10 @@ RU: Паттерн Фабричный Метод
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 
-class Creator(metaclass=ABCMeta):
+class Creator(ABC):
     """
     EN: The Creator class declares the factory method that is supposed to return
     an object of a Product class. The Creator's subclasses usually provide the
@@ -100,7 +100,7 @@ class ConcreteCreator2(Creator):
         return ConcreteProduct2()
 
 
-class Product(metaclass=ABCMeta):
+class Product(ABC):
     """
     EN: The Product interface declares the operations that all concrete products
     must implement.

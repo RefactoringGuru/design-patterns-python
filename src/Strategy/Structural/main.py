@@ -14,7 +14,7 @@ RU: Паттерн Стратегия
 
 
 from __future__ import annotations
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 from typing import List
 
 
@@ -79,7 +79,7 @@ class Context():
         # ...
 
 
-class Strategy(metaclass=ABCMeta):
+class Strategy(ABC):
     """
     EN: The Strategy interface declares operations common to all supported
     versions of some algorithm.
