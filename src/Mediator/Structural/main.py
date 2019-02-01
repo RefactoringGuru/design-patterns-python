@@ -20,13 +20,13 @@ from abc import ABC
 
 class Mediator(ABC):
     """
-    EN: The Mediator interface declares a method used by components to notify the
-    mediator about various events. The Mediator may react to these events and
-    pass the execution to other components.
+    EN: The Mediator interface declares a method used by components to notify
+    the mediator about various events. The Mediator may react to these events
+    and pass the execution to other components.
 
     RU: Интерфейс Посредника предоставляет метод, используемый компонентами для
     уведомления посредника о различных событиях. Посредник может реагировать на
-    эти события  и передавать исполнение другим компонентам.
+    эти события и передавать исполнение другим компонентам.
     """
 
     def notify(self, sender: object, event: str) -> None:

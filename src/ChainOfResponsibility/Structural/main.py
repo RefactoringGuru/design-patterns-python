@@ -23,8 +23,8 @@ class Handler(ABC):
     EN: The Handler interface declares a method for building the chain of
     handlers. It also declares a method for executing a request.
 
-    RU: Интерфейс Обработчика объявляет метод построения цепочки обработчиков. Он
-    также объявляет метод для выполнения запроса.
+    RU: Интерфейс Обработчика объявляет метод построения цепочки обработчиков.
+    Он также объявляет метод для выполнения запроса.
     """
 
     @abstractmethod
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     """
     EN: The client should be able to send a request to any handler, not just the
     first one in the chain.
-    
+
     RU: Клиент должен иметь возможность отправлять запрос любому обработчику, а
     не только первому в цепочке.
     """

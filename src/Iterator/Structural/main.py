@@ -17,11 +17,14 @@ from typing import Any, List
 
 
 """
-EN: To create an iterator in Python, there are two abstract classes from the built-in `collections` module - Iterable,Iterator.
-We need to implement the `__iter__()` method in the iterated object (collection), and the `__next__ ()` method in theiterator.
+EN: To create an iterator in Python, there are two abstract classes from the
+built-in `collections` module - Iterable,Iterator. We need to implement the
+`__iter__()` method in the iterated object (collection), and the `__next__ ()`
+method in theiterator.
 
-RU: Для создания итератора в Python есть два абстрактных класса из встроенного модуля collections - Iterable, Iterator.
-Нужно реализовать метод __iter__() в итерируемом объекте (списке), а метод __next__() в итераторе.
+RU: Для создания итератора в Python есть два абстрактных класса из встроенного
+модуля collections - Iterable, Iterator. Нужно реализовать метод __iter__() в
+итерируемом объекте (списке), а метод __next__() в итераторе.
 """
 
 
@@ -35,13 +38,13 @@ class AlphabeticalOrderIterator(Iterator):
     """
 
     """
-    EN: `_position` attribute stores the current traversal position. An iterator may have
-    a lot of other fields for storing iteration state, especially when it is
-    supposed to work with a particular kind of collection.
-   
-    RU: Атрибут  _position хранит текущее положение обхода. У итератора может быть
-    множество других полей для хранения состояния итерации, особенно когда он
-    должен работать с определённым типом коллекции.
+    EN: `_position` attribute stores the current traversal position. An iterator
+    may have a lot of other fields for storing iteration state, especially when
+    it is supposed to work with a particular kind of collection.
+
+    RU: Атрибут _position хранит текущее положение обхода. У итератора может
+    быть множество других полей для хранения состояния итерации, особенно когда
+    он должен работать с определённым типом коллекции.
     """
     _position = None
 
@@ -59,9 +62,12 @@ class AlphabeticalOrderIterator(Iterator):
 
     def __next__(self):
         """
-        EN: The __next__() method must return the next item in the sequence. On reaching the end, and in subsequent calls, it must raise StopIteration.
+        EN: The __next__() method must return the next item in the sequence. On
+        reaching the end, and in subsequent calls, it must raise StopIteration.
 
-        RU: Метод __next __() должен вернуть следующий элемент в последовательности. При достижении конца коллекции и в последующих вызовах должно вызываться исключение StopIteration.
+        RU: Метод __next __() должен вернуть следующий элемент в
+        последовательности. При достижении конца коллекции и в последующих
+        вызовах должно вызываться исключение StopIteration.
         """
         try:
             value = self._collection[self._position]
@@ -86,9 +92,11 @@ class WordsCollection(Iterable):
 
     def __iter__(self) -> AlphabeticalOrderIterator:
         """
-        EN: The __iter__() method returns the iterator object itself, by default we return the iterator in ascending order.
+        EN: The __iter__() method returns the iterator object itself, by default
+        we return the iterator in ascending order.
 
-        RU: Метод __iter__() возвращает объект итератора, по умолчанию мы возвращаем итератор с сортировкой по возрастанию.
+        RU: Метод __iter__() возвращает объект итератора, по умолчанию мы
+        возвращаем итератор с сортировкой по возрастанию.
         """
         return AlphabeticalOrderIterator(self._collection)
 
@@ -102,8 +110,8 @@ class WordsCollection(Iterable):
 if __name__ == "__main__":
     """
     EN: The client code may or may not know about the Concrete Iterator or
-    Collection classes, depending on the level of indirection you want to keep in
-    your program.
+    Collection classes, depending on the level of indirection you want to keep
+    in your program.
 
     RU: Клиентский код может знать или не знать о Конкретном Итераторе или
     классах Коллекций, в зависимости от уровня косвенности, который вы хотите

@@ -42,7 +42,8 @@ class Abstraction:
         self.implementation = implementation
 
     def operation(self) -> str:
-        return f"Abstraction: Base operation with:\n{self.implementation.operation_implementation()}"
+        return (f"Abstraction: Base operation with:\n"
+                f"{self.implementation.operation_implementation()}")
 
 
 class ExtendedAbstraction(Abstraction):
@@ -54,7 +55,8 @@ class ExtendedAbstraction(Abstraction):
     """
 
     def operation(self) -> str:
-        return f"ExtendedAbstraction: Extended operation with:\n{self.implementation.operation_implementation()}"
+        return (f"ExtendedAbstraction: Extended operation with:\n"
+                f"{self.implementation.operation_implementation()}")
 
 
 class Implementation(ABC):
@@ -103,8 +105,8 @@ def client_code(abstraction: Abstraction) -> None:
     depend on the Abstraction class. This way the client code can support any
     abstraction-implementation combination.
 
-    RU: За исключением этапа инициализации, когда объект Абстракции связывается с
-    определённым объектом Реализации, клиентский код должен зависеть только от
+    RU: За исключением этапа инициализации, когда объект Абстракции связывается
+    с определённым объектом Реализации, клиентский код должен зависеть только от
     класса Абстракции. Таким образом, клиентский код может поддерживать любую
     комбинацию абстракции и реализации.
     """

@@ -35,15 +35,16 @@ class Singleton:
     @staticmethod
     def get_instance() -> Singleton:
         """
-        EN: The static method that controls the access to the singleton instance.
+        EN: The static method that controls the access to the singleton
+        instance.
 
         This implementation let you subclass the Singleton class while keeping
         just one instance of each subclass around.
 
         RU: Статический метод, управляющий доступом к экземпляру одиночки.
 
-        Эта реализация позволяет вам расширять класс Одиночки,
-        сохраняя повсюду только один экземпляр каждого подкласса.
+        Эта реализация позволяет вам расширять класс Одиночки, сохраняя повсюду
+        только один экземпляр каждого подкласса.
         """
 
         if not Singleton._instance:

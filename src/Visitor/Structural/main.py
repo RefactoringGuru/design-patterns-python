@@ -37,7 +37,8 @@ class ConcreteComponentA(Component):
     that it calls the visitor's method corresponding to the component's class.
 
     RU: Каждый Конкретный Компонент должен реализовать метод accept таким
-    образом, чтобы он вызывал метод посетителя, соответствующий классу компонента.
+    образом, чтобы он вызывал метод посетителя, соответствующий классу
+    компонента.
     """
 
     def accept(self, visitor: Visitor) -> None:

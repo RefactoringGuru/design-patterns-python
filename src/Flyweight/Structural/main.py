@@ -19,15 +19,15 @@ from typing import Dict
 
 class Flyweight():
     """
-    EN: The Flyweight stores a common portion of the state (also called intrinsic
-    state) that belongs to multiple real business entities. The Flyweight accepts
-    the rest of the state (extrinsic state, unique for each entity) via its
-    method parameters.
+    EN: The Flyweight stores a common portion of the state (also called
+    intrinsic state) that belongs to multiple real business entities. The
+    Flyweight accepts the rest of the state (extrinsic state, unique for each
+    entity) via its method parameters.
 
     RU: Легковес хранит общую часть состояния (также называемую внутренним
     состоянием), которая принадлежит нескольким реальным бизнес-объектам.
-    Легковес принимает  оставшуюся часть состояния (внешнее состояние, уникальное
-    для каждого объекта)  через его параметры метода.
+    Легковес принимает  оставшуюся часть состояния (внешнее состояние,
+    уникальное для каждого объекта)  через его параметры метода.
     """
 
     def __init__(self, shared_state: str) -> None:
@@ -48,8 +48,8 @@ class FlyweightFactory():
 
     RU: Фабрика Легковесов создает объекты-Легковесы и управляет ими. Она
     обеспечивает правильное разделение легковесов. Когда клиент запрашивает
-    легковес, фабрика либо возвращает существующий экземпляр, либо создает новый,
-    если он ещё не существует.
+    легковес, фабрика либо возвращает существующий экземпляр, либо создает
+    новый, если он ещё не существует.
     """
 
     _flyweights: Dict[str, Flyweight] = {}

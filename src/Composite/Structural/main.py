@@ -68,8 +68,8 @@ class Component(ABC):
 
     def is_composite(self) -> bool:
         """
-        EN: You can provide a method that lets the client code figure out whether
-        a component can bear children.
+        EN: You can provide a method that lets the client code figure out
+        whether a component can bear children.
 
         RU: Вы можете предоставить метод, который позволит клиентскому коду
         понять, может ли компонент иметь вложенные объекты.
@@ -80,8 +80,8 @@ class Component(ABC):
     @abstractmethod
     def operation(self) -> str:
         """
-        EN: The base Component may implement some default behavior or leave it to
-        concrete classes (by declaring the method containing the behavior as
+        EN: The base Component may implement some default behavior or leave it
+        to concrete classes (by declaring the method containing the behavior as
         "abstract").
 
         RU: Базовый Компонент может сам реализовать некоторое поведение по
@@ -118,8 +118,8 @@ class Composite(Component):
     children and then "sum-up" the result.
 
     RU: Класс Контейнер содержит сложные компоненты, которые могут иметь
-    вложенные компоненты. Обычно объекты Контейнеры делегируют фактическую работу
-    своим детям, а затем «суммируют» результат.
+    вложенные компоненты. Обычно объекты Контейнеры делегируют фактическую
+    работу своим детям, а затем «суммируют» результат.
     """
 
     def __init__(self) -> None:
@@ -176,8 +176,8 @@ def client_code(component: Component) -> None:
 def client_code2(component1: Component, component2: Component) -> None:
     """
     EN: Thanks to the fact that the child-management operations are declared in
-    the base Component class, the client code can work with any component, simple
-    or complex, without depending on their concrete classes.
+    the base Component class, the client code can work with any component,
+    simple or complex, without depending on their concrete classes.
 
     RU: Благодаря тому, что операции управления потомками объявлены в базовом
     классе Компонента, клиентский код может работать как с простыми, так и со

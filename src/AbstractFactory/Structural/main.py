@@ -21,14 +21,15 @@ class AbstractFactory(ABC):
     different abstract products. These products are called a family and are
     related by a high-level theme or concept. Products of one family are usually
     able to collaborate among themselves. A family of products may have several
-    variants, but the products of one variant are incompatible with products
-    of another.
+    variants, but the products of one variant are incompatible with products of
+    another.
 
-    RU: Интерфейс Абстрактной Фабрики объявляет набор методов, которые возвращают
-    различные абстрактные продукты.  Эти продукты называются семейством и связаны
-    темой или концепцией высокого уровня. Продукты одного семейства обычно могут
-    взаимодействовать между собой. Семейство продуктов может иметь несколько
-    вариаций,  но продукты одной вариации несовместимы с продуктами другой.
+    RU: Интерфейс Абстрактной Фабрики объявляет набор методов, которые
+    возвращают различные абстрактные продукты.  Эти продукты называются
+    семейством и связаны темой или концепцией высокого уровня. Продукты одного
+    семейства обычно могут взаимодействовать между собой. Семейство продуктов
+    может иметь несколько вариаций,  но продукты одной вариации несовместимы с
+    продуктами другой.
     """
     @abstractmethod
     def create_product_a(self) -> AbstractProductA:
@@ -109,9 +110,9 @@ class ConcreteProductA2(AbstractProductA):
 
 class AbstractProductB(ABC):
     """
-    EN: Here's the the base interface of another product. All products can interact with
-    each other, but proper interaction is possible only between products of the
-    same concrete variant.
+    EN: Here's the the base interface of another product. All products can
+    interact with each other, but proper interaction is possible only between
+    products of the same concrete variant.
 
     RU: Базовый интерфейс другого продукта. Все продукты могут взаимодействовать
     друг с другом, но правильное взаимодействие возможно только между продуктами

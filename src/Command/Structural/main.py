@@ -40,7 +40,8 @@ class SimpleCommand(Command):
         self._payload = payload
 
     def execute(self) -> None:
-        print(f"SimpleCommand: See, I can do simple things like printing ({self._payload})")
+        print(f"SimpleCommand: See, I can do simple things like printing"
+              f"({self._payload})")
 
 
 class ComplexCommand(Command):

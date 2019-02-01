@@ -105,14 +105,14 @@ class ConcreteSubject(Subject):
     def some_business_logic(self) -> None:
         """
         EN: Usually, the subscription logic is only a fraction of what a Subject
-        can really do. Subjects commonly hold some important business logic, that
-        triggers a notification method whenever something important is about to
-        happen (or after it).
+        can really do. Subjects commonly hold some important business logic,
+        that triggers a notification method whenever something important is
+        about to happen (or after it).
 
         RU: Обычно логика подписки – только часть того, что делает Издатель.
-        Издатели часто содержат некоторую важную бизнес-логику, которая запускает
-        метод уведомления всякий раз, когда должно произойти что-то важное (или
-        после этого).
+        Издатели часто содержат некоторую важную бизнес-логику, которая
+        запускает метод уведомления всякий раз, когда должно произойти что-то
+        важное (или после этого).
         """
 
         print("\nSubject: I'm doing something important.")
@@ -126,7 +126,7 @@ class ConcreteSubject(Subject):
 EN: Concrete Observers react to the updates issued by the Subject they had
 been attached to.
 
-RU: Конкретные Наблюдатели реагируют на обновления, выпущенные Издателем,  к
+RU: Конкретные Наблюдатели реагируют на обновления, выпущенные Издателем, к
 которому они прикреплены.
 """
 

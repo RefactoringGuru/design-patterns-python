@@ -125,8 +125,9 @@ class Product1():
     продукты достаточно сложны и требуют обширной конфигурации.
 
     В отличие от других порождающих паттернов, различные конкретные строители
-    могут производить несвязанные продукты. Другими словами, результаты различных
-    строителей  могут не всегда  следовать одному и тому же интерфейсу.
+    могут производить несвязанные продукты. Другими словами, результаты
+    различных строителей  могут не всегда  следовать одному и тому же
+    интерфейсу.
     """
 
     def __init__(self) -> None:
@@ -192,8 +193,8 @@ class Director:
 if __name__ == "__main__":
     """
     EN: The client code creates a builder object, passes it to the director and
-    then initiates the construction process. The end result is retrieved from the
-    builder object.
+    then initiates the construction process. The end result is retrieved from
+    the builder object.
 
     RU: Клиентский код создаёт объект-строитель, передаёт его директору, а затем
     инициирует  процесс построения. Конечный результат извлекается из

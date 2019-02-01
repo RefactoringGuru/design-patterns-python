@@ -26,8 +26,8 @@ class Originator():
     method for restoring the state from it.
 
     RU: Создатель содержит некоторое важное состояние, которое может со временем
-    меняться. Он также объявляет метод сохранения состояния внутри снимка и метод
-    восстановления состояния из него.
+    меняться. Он также объявляет метод сохранения состояния внутри снимка и
+    метод восстановления состояния из него.
     """
 
     _state = None
@@ -130,9 +130,9 @@ class ConcreteMemento(Memento):
 
 class Caretaker():
     """
-    EN: The Caretaker doesn't depend on the Concrete Memento class. Therefore, it
-    doesn't have access to the originator's state, stored inside the memento. It
-    works with all mementos via the base Memento interface.
+    EN: The Caretaker doesn't depend on the Concrete Memento class. Therefore,
+    it doesn't have access to the originator's state, stored inside the memento.
+    It works with all mementos via the base Memento interface.
 
     RU: Опекун не зависит от класса Конкретного Снимка. Таким образом, он не
     имеет доступа к состоянию создателя, хранящемуся внутри снимка. Он работает
