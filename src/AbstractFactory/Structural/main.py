@@ -31,11 +31,11 @@ class AbstractFactory(ABC):
     вариаций,  но продукты одной вариации несовместимы с продуктами другой.
     """
     @abstractmethod
-    def create_product_a(self):
+    def create_product_a(self) -> AbstractProductA:
         pass
 
     @abstractmethod
-    def create_product_b(self):
+    def create_product_b(self) -> AbstractProductB:
         pass
 
 
