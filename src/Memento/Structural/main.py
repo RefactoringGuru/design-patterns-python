@@ -39,7 +39,7 @@ class Originator():
     переменной.
     """
 
-    def __init__(self, state: str):
+    def __init__(self, state: str) -> None:
         self._state = state
         print(f"Originator: My initial state is: {self._state}")
 
@@ -101,7 +101,7 @@ class Memento(ABC):
 
 
 class ConcreteMemento(Memento):
-    def __init__(self, state: str):
+    def __init__(self, state: str) -> None:
         self._state = state
         self._date = str(datetime.now())[:19]
 
@@ -139,7 +139,7 @@ class Caretaker():
     со всеми снимками через базовый интерфейс Снимка.
     """
 
-    def __init__(self, originator: Originator):
+    def __init__(self, originator: Originator) -> None:
         self._mementos = []
         self._originator = originator
 

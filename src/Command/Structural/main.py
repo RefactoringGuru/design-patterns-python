@@ -36,7 +36,7 @@ class SimpleCommand(Command):
     RU: Некоторые команды способны выполнять простые операции самостоятельно.
     """
 
-    def __init__(self, payload: str):
+    def __init__(self, payload: str) -> None:
         self._payload = payload
 
     def execute(self) -> None:
@@ -52,7 +52,7 @@ class ComplexCommand(Command):
     объектам, называемым «получателями».
     """
 
-    def __init__(self, receiver: Receiver, a: str, b: str):
+    def __init__(self, receiver: Receiver, a: str, b: str) -> None:
         """
         EN: Complex commands can accept one or several receiver objects along
         with any context data via the constructor.

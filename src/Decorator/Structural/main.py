@@ -56,7 +56,7 @@ class Decorator(Component):
 
     _component = None  # Component
 
-    def __init__(self, component: Component):
+    def __init__(self, component: Component) -> None:
         self._component = component
 
     @property

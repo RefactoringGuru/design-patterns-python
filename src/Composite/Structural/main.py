@@ -122,7 +122,7 @@ class Composite(Component):
     своим детям, а затем «суммируют» результат.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._children = []  # List[Component]
 
     """

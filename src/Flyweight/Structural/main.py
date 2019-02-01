@@ -30,7 +30,7 @@ class Flyweight():
     для каждого объекта)  через его параметры метода.
     """
 
-    def __init__(self, shared_state: str):
+    def __init__(self, shared_state: str) -> None:
         self._shared_state = shared_state
 
     def operation(self, unique_state: str) -> None:
@@ -54,7 +54,7 @@ class FlyweightFactory():
 
     _flyweights = {}  # Dict[str, Flyweight]
 
-    def __init__(self, initial_flyweights: Dict):
+    def __init__(self, initial_flyweights: Dict) -> None:
         for state in initial_flyweights:
             self._flyweights[self.get_key(state)] = Flyweight(state)
 

@@ -52,7 +52,7 @@ class AlphabeticalOrderIterator(Iterator):
     """
     _reverse = False
 
-    def __init__(self, collection: WordsCollection, reverse: bool = False):
+    def __init__(self, collection: WordsCollection, reverse: bool = False) -> None:
         self._collection = collection
         self._reverse = reverse
         self._position = -1 if reverse else 0
@@ -81,7 +81,7 @@ class WordsCollection(Iterable):
     получения новых экземпляров итератора, совместимых с классом коллекции.
     """
 
-    def __init__(self, collection: List[Any] = []):
+    def __init__(self, collection: List[Any] = []) -> None:
         self._collection = collection
 
     def __iter__(self) -> AlphabeticalOrderIterator:

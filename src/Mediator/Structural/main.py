@@ -34,7 +34,7 @@ class Mediator(ABC):
 
 
 class ConcreteMediator(Mediator):
-    def __init__(self, component1: Component1, component2: Component2):
+    def __init__(self, component1: Component1, component2: Component2) -> None:
         self._component1 = component1
         self._component1.mediator = self
         self._component2 = component2
@@ -59,7 +59,7 @@ class BaseComponent:
     экземпляра посредника внутри объектов компонентов.
     """
 
-    def __init__(self, mediator: Mediator = None):
+    def __init__(self, mediator: Mediator = None) -> None:
         self._mediator = mediator
 
     @property

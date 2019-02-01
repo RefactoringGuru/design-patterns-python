@@ -30,7 +30,7 @@ class Facade:
     циклом. Все это защищает клиента от нежелательной сложности подсистемы.
     """
 
-    def __init__(self, subsystem1: Subsystem1, subsystem2: Subsystem2):
+    def __init__(self, subsystem1: Subsystem1, subsystem2: Subsystem2) -> None:
         """
         EN: Depending on your application's needs, you can provide the Facade
         with existing subsystem objects or force the Facade to create them on its

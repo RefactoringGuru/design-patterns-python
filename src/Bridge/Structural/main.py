@@ -38,7 +38,7 @@ class Abstraction:
     ему всю настоящую работу.
     """
 
-    def __init__(self, implementation: Implementation):
+    def __init__(self, implementation: Implementation) -> None:
         self.implementation = implementation
 
     def operation(self) -> str:

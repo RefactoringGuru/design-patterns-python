@@ -57,7 +57,7 @@ class Proxy(Subject):
     RU: Интерфейс Заместителя идентичен интерфейсу Реального Субъекта.
     """
 
-    def __init__(self, real_subject: RealSubject):
+    def __init__(self, real_subject: RealSubject) -> None:
         self._real_subject = real_subject
 
     def request(self) -> None:

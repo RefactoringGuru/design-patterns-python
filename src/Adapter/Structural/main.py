@@ -49,7 +49,7 @@ class Adapter(Target):
     интерфейсом.
     """
 
-    def __init__(self, adaptee: Adaptee):
+    def __init__(self, adaptee: Adaptee) -> None:
         self.adaptee = adaptee
 
     def request(self) -> str:

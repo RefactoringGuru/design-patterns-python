@@ -25,7 +25,7 @@ class Context():
     RU: Контекст определяет интерфейс, представляющий интерес для клиентов.
     """
 
-    def __init__(self, strategy: Strategy):
+    def __init__(self, strategy: Strategy) -> None:
         """
         EN: Usually, the Context accepts a strategy through the constructor, but
         also provides a setter to change it at runtime.

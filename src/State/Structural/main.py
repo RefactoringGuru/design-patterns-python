@@ -33,7 +33,7 @@ class Context(ABC):
     RU: Ссылка на текущее состояние Контекста.
     """
 
-    def __init__(self, state: State):
+    def __init__(self, state: State) -> None:
         self.transition_to(state)
 
     def transition_to(self, state: State):

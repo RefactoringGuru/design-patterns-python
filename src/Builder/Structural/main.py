@@ -55,7 +55,7 @@ RU: Классы Конкретного Строителя следуют инт
 
 
 class ConcreteBuilder1(Builder):
-    def __init__(self):
+    def __init__(self) -> None:
         """
         EN: A fresh builder instance should contain a blank product object, which
         is used in further assembly.
@@ -129,7 +129,7 @@ class Product1():
     строителей  могут не всегда  следовать одному и тому же интерфейсу.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.parts = []
 
     def add(self, part: Any) -> None:
@@ -152,7 +152,7 @@ class Director:
     так как клиент может напрямую управлять строителями.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._builder = None
 
     @property
