@@ -40,20 +40,19 @@ class AbstractFactory(ABC):
         pass
 
 
-"""
-EN: Concrete Factories produce a family of products that belong to a single
-variant. The factory guarantees that resulting products are compatible.
-Note that signatures of the Concrete Factory's methods return an abstract
-product, while inside the method a concrete product is instantiated.
-
-RU: Конкретная Фабрика производит семейство продуктов одной вариации. Фабрика
-гарантирует совместимость полученных продуктов. Обратите внимание, что
-сигнатуры методов Конкретной Фабрики возвращают абстрактный продукт, в то
-время как внутри метода создается экземпляр конкретного продукта.
-"""
-
-
 class ConcreteFactory1(AbstractFactory):
+    """
+    EN: Concrete Factories produce a family of products that belong to a single
+    variant. The factory guarantees that resulting products are compatible.
+    Note that signatures of the Concrete Factory's methods return an abstract
+    product, while inside the method a concrete product is instantiated.
+
+    RU: Конкретная Фабрика производит семейство продуктов одной вариации. Фабрика
+    гарантирует совместимость полученных продуктов. Обратите внимание, что
+    сигнатуры методов Конкретной Фабрики возвращают абстрактный продукт, в то
+    время как внутри метода создается экземпляр конкретного продукта.
+    """
+
     def create_product_a(self) -> ConcreteProductA1:
         return ConcreteProductA1()
 
@@ -61,14 +60,13 @@ class ConcreteFactory1(AbstractFactory):
         return ConcreteProductB1()
 
 
-"""
-EN: Each Concrete Factory has a corresponding product variant.
-
-RU: Каждая Конкретная Фабрика имеет соответствующую вариацию продукта.
-"""
-
-
 class ConcreteFactory2(AbstractFactory):
+    """
+    EN: Each Concrete Factory has a corresponding product variant.
+
+    RU: Каждая Конкретная Фабрика имеет соответствующую вариацию продукта.
+    """
+
     def create_product_a(self) -> ConcreteProductA2:
         return ConcreteProductA2()
 
@@ -76,16 +74,15 @@ class ConcreteFactory2(AbstractFactory):
         return ConcreteProductB2()
 
 
-"""
-EN: Each distinct product of a product family should have a base interface.
-All variants of the product must implement this interface.
-
-RU: Каждый отдельный продукт семейства продуктов должен иметь базовый
-интерфейс. Все вариации продукта должны реализовывать этот интерфейс.
-"""
-
-
 class AbstractProductA(ABC):
+    """
+    EN: Each distinct product of a product family should have a base interface.
+    All variants of the product must implement this interface.
+
+    RU: Каждый отдельный продукт семейства продуктов должен иметь базовый
+    интерфейс. Все вариации продукта должны реализовывать этот интерфейс.
+    """
+
     @abstractmethod
     def useful_function_a(self) -> str:
         pass
@@ -187,18 +184,16 @@ class ConcreteProductB2(AbstractProductB):
         return f"The result of the B2 collaborating with the ({result})"
 
 
-"""
-EN: The client code works with factories and products only through abstract
-types: AbstractFactory and AbstractProduct. This lets you pass any factory or
-product subclass to the client code without breaking it.
-
-RU: Клиентский код работает с фабриками и продуктами только через абстрактные
-типы: Абстрактная Фабрика и Абстрактный Продукт. Это позволяет передавать
-любой подкласс фабрики или продукта клиентскому коду, не нарушая его.
-"""
-
-
 def client_code(factory: AbstractFactory) -> None:
+    """
+    EN: The client code works with factories and products only through abstract
+    types: AbstractFactory and AbstractProduct. This lets you pass any factory or
+    product subclass to the client code without breaking it.
+
+    RU: Клиентский код работает с фабриками и продуктами только через абстрактные
+    типы: Абстрактная Фабрика и Абстрактный Продукт. Это позволяет передавать
+    любой подкласс фабрики или продукта клиентскому коду, не нарушая его.
+    """
     product_a = factory.create_product_a()
     product_b = factory.create_product_b()
 

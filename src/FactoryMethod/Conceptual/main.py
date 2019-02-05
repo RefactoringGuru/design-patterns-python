@@ -133,18 +133,17 @@ class ConcreteProduct2(Product):
         return "{Result of the ConcreteProduct2}"
 
 
-"""
-EN: The client code works with an instance of a concrete creator, albeit
-through its base interface. As long as the client keeps working with the
-creator via the base interface, you can pass it any creator's subclass.
-
-RU: Клиентский код работает с экземпляром конкретного создателя, хотя и через
-его базовый интерфейс. Пока клиент продолжает работать с создателем через
-базовый интерфейс, вы можете передать ему любой подкласс создателя.
-"""
-
-
 def client_code(creator: Creator) -> None:
+    """
+    EN: The client code works with an instance of a concrete creator, albeit
+    through its base interface. As long as the client keeps working with the
+    creator via the base interface, you can pass it any creator's subclass.
+
+    RU: Клиентский код работает с экземпляром конкретного создателя, хотя и через
+    его базовый интерфейс. Пока клиент продолжает работать с создателем через
+    базовый интерфейс, вы можете передать ему любой подкласс создателя.
+    """
+    
     print(f"Client: I'm not aware of the creator's class, but it still works.\n"
           f"{creator.some_operation()}", end="")
 

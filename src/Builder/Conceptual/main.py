@@ -43,18 +43,17 @@ class Builder(ABC):
         pass
 
 
-"""
-EN: The Concrete Builder classes follow the Builder interface and provide
-specific implementations of the building steps. Your program may have several
-variations of Builders, implemented differently.
-
-RU: Классы Конкретного Строителя следуют интерфейсу Строителя и предоставляют
-конкретные реализации шагов построения. Ваша программа может иметь несколько
-вариантов Строителей, реализованных по-разному.
-"""
-
-
 class ConcreteBuilder1(Builder):
+    """
+    EN: The Concrete Builder classes follow the Builder interface and provide
+    specific implementations of the building steps. Your program may have several
+    variations of Builders, implemented differently.
+
+    RU: Классы Конкретного Строителя следуют интерфейсу Строителя и предоставляют
+    конкретные реализации шагов построения. Ваша программа может иметь несколько
+    вариантов Строителей, реализованных по-разному.
+    """
+
     def __init__(self) -> None:
         """
         EN: A fresh builder instance should contain a blank product object, which
@@ -200,6 +199,7 @@ if __name__ == "__main__":
     инициирует  процесс построения. Конечный результат извлекается из
     объекта-строителя.
     """
+    
     director = Director()
     builder = ConcreteBuilder1()
     director.builder = builder

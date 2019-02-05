@@ -57,14 +57,13 @@ class Adapter(Target):
         return f"Adapter: (TRANSLATED) {self.adaptee.specific_request()[::-1]}"
 
 
-"""
- EN: The client code supports all classes that follow the Target interface.
- 
- RU: Клиентский код поддерживает все классы, использующие целевой интерфейс.
-"""
-
-
 def client_code(target: Target) -> None:
+    """
+    EN: The client code supports all classes that follow the Target interface.
+
+    RU: Клиентский код поддерживает все классы, использующие интерфейс Target.
+    """
+
     print(target.request(), end="")
 
 

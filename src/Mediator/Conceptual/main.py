@@ -102,11 +102,9 @@ class Component2(BaseComponent):
 
 
 if __name__ == "__main__":
-    """
-    EN: The client code.
-
-    RU: Клиентский код.
-    """
+    # EN: The client code.
+    #
+    # RU: Клиентский код.
     c1 = Component1()
     c2 = Component2()
     mediator = ConcreteMediator(c1, c2)

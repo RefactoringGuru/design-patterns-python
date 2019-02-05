@@ -99,17 +99,16 @@ class DogHandler(AbstractHandler):
             return super().handle(request)
 
 
-"""
-EN: The client code is usually suited to work with a single handler. In most
-cases, it is not even aware that the handler is part of a chain.
-
-RU: Обычно клиентский код приспособлен для работы с единственным
-обработчиком. В большинстве случаев клиенту даже неизвестно, что этот
-обработчик является частью цепочки.
-"""
-
-
 def client_code(handler: Handler) -> None:
+    """
+    EN: The client code is usually suited to work with a single handler. In most
+    cases, it is not even aware that the handler is part of a chain.
+
+    RU: Обычно клиентский код приспособлен для работы с единственным
+    обработчиком. В большинстве случаев клиенту даже неизвестно, что этот
+    обработчик является частью цепочки.
+    """
+
     for food in ["Nut", "Banana", "Cup of coffee"]:
         print(f"\nClient: Who wants a {food}?")
         result = handler.handle(food)
@@ -126,13 +125,11 @@ if __name__ == "__main__":
 
     monkey.set_next(squirrel).set_next(dog)
 
-    """
-    EN: The client should be able to send a request to any handler, not just the
-    first one in the chain.
-
-    RU: Клиент должен иметь возможность отправлять запрос любому обработчику, а
-    не только первому в цепочке.
-    """
+    # EN: The client should be able to send a request to any handler, not just the
+    # first one in the chain.
+    #
+    # RU: Клиент должен иметь возможность отправлять запрос любому обработчику, а
+    # не только первому в цепочке.    
     print("Chain: Monkey > Squirrel > Dog")
     client_code(monkey)
     print("\n")

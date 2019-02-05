@@ -191,22 +191,18 @@ def client_code2(component1: Component, component2: Component) -> None:
 
 
 if __name__ == "__main__":
-    """
-    EN: This way the client code can support the simple leaf components...
-
-    RU: Таким образом, клиентский код может поддерживать простые
-    компоненты-листья...
-    """
+    # EN: This way the client code can support the simple leaf components...
+    # 
+    # RU: Таким образом, клиентский код может поддерживать простые
+    # компоненты-листья...
     simple = Leaf()
     print("Client: I've got a simple component:")
     client_code(simple)
     print("\n")
 
-    """
-    EN: ...as well as the complex composites.
-    
-    RU: ...а также сложные контейнеры.
-    """
+    # EN: ...as well as the complex composites.
+    # 
+    # RU: ...а также сложные контейнеры.
     tree = Composite()
 
     branch1 = Composite()

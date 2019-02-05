@@ -47,11 +47,9 @@ class AbstractClass(ABC):
         self.base_operation3()
         self.hook2()
 
-    """
-    EN: These operations already have implementations.
-    
-    RU: Эти операции уже имеют реализации.
-    """
+    # EN: These operations already have implementations.
+    # 
+    # RU: Эти операции уже имеют реализации.
 
     def base_operation1(self) -> None:
         print("AbstractClass says: I am doing the bulk of the work")
@@ -62,11 +60,9 @@ class AbstractClass(ABC):
     def base_operation3(self) -> None:
         print("AbstractClass says: But I am doing the bulk of the work anyway")
 
-    """
-    EN: These operations have to be implemented in subclasses.
-    
-    RU: А эти операции должны быть реализованы в подклассах.
-    """
+    # EN: These operations have to be implemented in subclasses.
+    #
+    # RU: А эти операции должны быть реализованы в подклассах.
 
     @abstractmethod
     def required_operations1(self) -> None:
@@ -76,17 +72,15 @@ class AbstractClass(ABC):
     def required_operations2(self) -> None:
         pass
 
-    """
-    EN: These are "hooks." Subclasses may override them, but it's not
-    mandatory since the hooks already have default (but empty)
-    implementation. Hooks provide additional extension points in some crucial
-    places of the algorithm.
-    
-    RU: Это «хуки». Подклассы могут переопределять их, но это не обязательно,
-    поскольку у хуков уже есть стандартная (но пустая) реализация. Хуки
-    предоставляют дополнительные точки расширения в некоторых критических
-    местах алгоритма.
-    """
+    # EN: These are "hooks." Subclasses may override them, but it's not
+    # mandatory since the hooks already have default (but empty)
+    # implementation. Hooks provide additional extension points in some crucial
+    # places of the algorithm.
+    #
+    # RU: Это «хуки». Подклассы могут переопределять их, но это не обязательно,
+    # поскольку у хуков уже есть стандартная (но пустая) реализация. Хуки
+    # предоставляют дополнительные точки расширения в некоторых критических
+    # местах алгоритма.
 
     def hook1(self) -> None:
         pass

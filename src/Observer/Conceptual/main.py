@@ -144,12 +144,10 @@ class ConcreteObserverB(Observer):
 
 
 if __name__ == "__main__":
-    """
-    EN: The client code.
-
-    RU: Клиентский код.
-    """
-
+    # EN: The client code.
+    # 
+    # RU: Клиентский код.
+    
     subject = ConcreteSubject()
 
     observer_a = ConcreteObserverA()

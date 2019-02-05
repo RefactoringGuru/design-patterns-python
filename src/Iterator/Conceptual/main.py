@@ -108,15 +108,13 @@ class WordsCollection(Iterable):
 
 
 if __name__ == "__main__":
-    """
-    EN: The client code may or may not know about the Concrete Iterator or
-    Collection classes, depending on the level of indirection you want to keep
-    in your program.
-
-    RU: Клиентский код может знать или не знать о Конкретном Итераторе или
-    классах Коллекций, в зависимости от уровня косвенности, который вы хотите
-    сохранить в своей программе.
-    """
+    # EN: The client code may or may not know about the Concrete Iterator or
+    # Collection classes, depending on the level of indirection you want to keep
+    # in your program.
+    # 
+    # RU: Клиентский код может знать или не знать о Конкретном Итераторе или
+    # классах Коллекций, в зависимости от уровня косвенности, который вы хотите
+    # сохранить в своей программе.
     collection = WordsCollection()
     collection.add_item("First")
     collection.add_item("Second")

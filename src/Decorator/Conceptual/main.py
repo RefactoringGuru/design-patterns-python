@@ -127,28 +127,24 @@ def client_code(component: Component) -> None:
 
 
 if __name__ == "__main__":
-    """
-    EN: This way the client code can support both simple components...
-
-    RU: Таким образом, клиентский код может поддерживать как простые
-    компоненты...
-    """
+    # EN: This way the client code can support both simple components...
+    # 
+    # RU: Таким образом, клиентский код может поддерживать как простые
+    # компоненты...
     simple = ConcreteComponent()
     print("Client: I've got a simple component:")
     client_code(simple)
     print("\n")
 
-    """
-    EN: ...as well as decorated ones.
-    
-    Note how decorators can wrap not only simple components but the other
-    decorators as well.
-    
-    RU: ...так и декорированные.
-    
-    Обратите внимание, что декораторы могут обёртывать не только простые
-    компоненты, но и другие декораторы.
-    """
+    # EN: ...as well as decorated ones.
+    # 
+    # Note how decorators can wrap not only simple components but the other
+    # decorators as well.
+    # 
+    # RU: ...так и декорированные.
+    # 
+    # Обратите внимание, что декораторы могут обёртывать не только простые
+    # компоненты, но и другие декораторы.
     decorator1 = ConcreteDecoratorA(simple)
     decorator2 = ConcreteDecoratorB(decorator1)
     print("Client: Now I've got a decorated component:")

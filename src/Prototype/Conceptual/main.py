@@ -78,11 +78,9 @@ class ComponentWithBackReference:
 
 
 if __name__ == "__main__":
-    """
-    EN: The client code.
-
-    RU: Клиентский код.
-    """
+    # EN: The client code.
+    #
+    # RU: Клиентский код.
     p1 = Prototype()
     p1.primitive = 245
     p1.component = datetime.now()

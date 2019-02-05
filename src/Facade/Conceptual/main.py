@@ -117,15 +117,13 @@ def client_code(facade: Facade) -> None:
 
 
 if __name__ == "__main__":
-    """
-    EN: The client code may have some of the subsystem's objects already created.
-    In this case, it might be worthwhile to initialize the Facade with these
-    objects instead of letting the Facade create new instances.
-
-    RU: В клиентском коде могут быть уже созданы некоторые объекты подсистемы. В
-    этом случае может оказаться целесообразным инициализировать Фасад с этими
-    объектами вместо того, чтобы позволить Фасаду создавать новые экземпляры.
-    """
+    # EN: The client code may have some of the subsystem's objects already created.
+    # In this case, it might be worthwhile to initialize the Facade with these
+    # objects instead of letting the Facade create new instances.
+    # 
+    # RU: В клиентском коде могут быть уже созданы некоторые объекты подсистемы. В
+    # этом случае может оказаться целесообразным инициализировать Фасад с этими
+    # объектами вместо того, чтобы позволить Фасаду создавать новые экземпляры.
     subsystem1 = Subsystem1()
     subsystem2 = Subsystem2()
     facade = Facade(subsystem1, subsystem2)
