@@ -129,7 +129,7 @@ if __name__ == "__main__":
     # first one in the chain.
     #
     # RU: Клиент должен иметь возможность отправлять запрос любому обработчику, а
-    # не только первому в цепочке.    
+    # не только первому в цепочке.
     print("Chain: Monkey > Squirrel > Dog")
     client_code(monkey)
     print("\n")

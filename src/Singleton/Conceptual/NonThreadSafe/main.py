@@ -67,7 +67,7 @@ if __name__ == "__main__":
     # EN: The client code.
     #
     # RU: Клиентский код.
-    
+
     s1 = Singleton.get_instance()
     s2 = Singleton.get_instance()
 

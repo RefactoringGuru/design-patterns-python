@@ -123,9 +123,9 @@ class ConcreteStateB(State):
 
 if __name__ == "__main__":
     # EN: The client code.
-    # 
+    #
     # RU: Клиентский код.
-    
+
     context = Context(ConcreteStateA())
     context.request1()
     context.request2()

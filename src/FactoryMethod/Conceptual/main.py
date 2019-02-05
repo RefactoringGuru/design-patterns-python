@@ -143,7 +143,7 @@ def client_code(creator: Creator) -> None:
     его базовый интерфейс. Пока клиент продолжает работать с создателем через
     базовый интерфейс, вы можете передать ему любой подкласс создателя.
     """
-    
+
     print(f"Client: I'm not aware of the creator's class, but it still works.\n"
           f"{creator.some_operation()}", end="")
 

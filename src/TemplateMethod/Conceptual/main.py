@@ -48,7 +48,7 @@ class AbstractClass(ABC):
         self.hook2()
 
     # EN: These operations already have implementations.
-    # 
+    #
     # RU: Эти операции уже имеют реализации.
 
     def base_operation1(self) -> None:
