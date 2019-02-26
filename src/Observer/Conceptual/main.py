@@ -29,6 +29,7 @@ from abc import ABC, abstractmethod
 from random import randrange
 from typing import List
 
+
 class Subject(ABC):
     """
     EN: The Subject interface declares a set of methods for managing subscribers.
@@ -152,7 +153,6 @@ class Observer(ABC):
         RU: Получить обновление от субъекта.
         """
         pass
-
 
 
 """
