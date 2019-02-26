@@ -18,6 +18,14 @@ from typing import Any
 
 
 class Prototype:
+    """
+    EN: The example class that has cloning ability. We'll see how the values of
+    field with different types will be cloned.
+
+    RU: Пример класса, имеющего возможность клонирования. Мы посмотрим как
+    происходит клонирование значений полей разных типов.
+    """
+
     def __init__(self) -> None:
         self._primitive = None
         self._component = None

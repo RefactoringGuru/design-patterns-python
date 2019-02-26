@@ -29,8 +29,42 @@ from abc import ABC, abstractmethod
 from random import randrange
 from typing import List
 
-
 class Subject(ABC):
+    """
+    EN: The Subject interface declares a set of methods for managing subscribers.
+
+    RU: Интферфейс издателя объявляет набор методов для управлениями подпискичами.
+    """
+
+    @abstractmethod
+    def attach(self, observer: Observer) -> None:
+        """
+        EN: Attach an observer to the subject.
+
+        RU: Присоединяет наблюдателя к издателю.
+        """
+        pass
+
+    @abstractmethod
+    def detach(self, observer: Observer) -> None:
+        """
+        EN: Detach an observer from the subject.
+
+        RU: Отсоединяет наблюдателя от издателя.
+        """
+        pass
+
+    @abstractmethod
+    def notify(self) -> None:
+        """
+        EN: Notify all observers about an event.
+
+        RU: Уведомляет всех наблюдателей о событии.
+        """
+        pass
+
+
+class ConcreteSubject(Subject):
     """
     EN: The Subject owns some important state and notifies observers when the
     state changes.
@@ -39,26 +73,6 @@ class Subject(ABC):
     его изменениях.
     """
 
-    @abstractmethod
-    def attach(self, observer: Observer) -> None:
-        pass
-
-    @abstractmethod
-    def detach(self, observer: Observer) -> None:
-        pass
-
-    @abstractmethod
-    def notify(self) -> None:
-        pass
-
-
-class Observer(ABC):
-    @abstractmethod
-    def update(self, subject: Subject) -> None:
-        pass
-
-
-class ConcreteSubject(Subject):
     _state: int = None
     """
      EN: For the sake of simplicity, the Subject's state, essential
@@ -120,6 +134,25 @@ class ConcreteSubject(Subject):
 
         print(f"Subject: My state has just changed to: {self._state}")
         self.notify()
+
+
+class Observer(ABC):
+    """
+    EN: The Observer interface declares the update method, used by subjects.
+
+    RU: Интерфейс Наблюдателя объявляет метод уведомления, который издатели
+    используют для оповещения своих подписчиков.
+    """
+
+    @abstractmethod
+    def update(self, subject: Subject) -> None:
+        """
+        EN: Receive update from subject.
+
+        RU: Получить обновление от субъекта.
+        """
+        pass
+
 
 
 """
