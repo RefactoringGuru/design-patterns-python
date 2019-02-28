@@ -2,8 +2,8 @@
 EN: Visitor Design Pattern
 
 Intent: Represent an operation to be performed over elements of an object
-structure. The Visitor pattern lets you define a new operation without
-changing the classes of the elements on which it operates.
+structure. The Visitor pattern lets you define a new operation without changing
+the classes of the elements on which it operates.
 
 RU: Паттерн Посетитель
 
@@ -103,21 +103,21 @@ class Visitor(ABC):
 
 
 """
- EN: Concrete Visitors implement several versions of the same algorithm, which
- can work with all concrete component classes.
- 
- You can experience the biggest benefit of the Visitor pattern when using it
- with a complex object structure, such as a Composite tree. In this case, it
- might be helpful to store some intermediate state of the algorithm while
- executing visitor's methods over various objects of the structure.
- 
- RU: Конкретные Посетители реализуют несколько версий одного и того же
- алгоритма, которые могут работать со всеми классами конкретных компонентов.
- 
- Максимальную выгоду от паттерна Посетитель вы почувствуете, используя его со
- сложной структурой объектов, такой как дерево Компоновщика. В этом случае
- было бы полезно хранить некоторое промежуточное состояние алгоритма при
- выполнении методов посетителя над различными объектами структуры.
+EN: Concrete Visitors implement several versions of the same algorithm, which
+can work with all concrete component classes.
+
+You can experience the biggest benefit of the Visitor pattern when using it with
+a complex object structure, such as a Composite tree. In this case, it might be
+helpful to store some intermediate state of the algorithm while executing
+visitor's methods over various objects of the structure.
+
+RU: Конкретные Посетители реализуют несколько версий одного и того же алгоритма,
+которые могут работать со всеми классами конкретных компонентов.
+
+Максимальную выгоду от паттерна Посетитель вы почувствуете, используя его со
+сложной структурой объектов, такой как дерево Компоновщика. В этом случае было
+бы полезно хранить некоторое промежуточное состояние алгоритма при выполнении
+методов посетителя над различными объектами структуры.
 """
 
 

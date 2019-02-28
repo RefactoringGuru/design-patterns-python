@@ -1,14 +1,13 @@
 """
 EN: Builder Design Pattern
 
-Intent: Separate the construction of a complex object from its representation
-so that the same construction process can create different representations.
+Intent: Separate the construction of a complex object from its representation so
+that the same construction process can create different representations.
 
 RU: Паттерн Строитель
 
-Назначение: Отделяет построение сложного объекта от его
-представления так, что один и тот же процесс построения может создавать
-разные представления объекта.
+Назначение: Отделяет построение сложного объекта от его представления так, что
+один и тот же процесс построения может создавать разные представления объекта.
 """
 
 
@@ -46,18 +45,18 @@ class Builder(ABC):
 class ConcreteBuilder1(Builder):
     """
     EN: The Concrete Builder classes follow the Builder interface and provide
-    specific implementations of the building steps. Your program may have several
-    variations of Builders, implemented differently.
+    specific implementations of the building steps. Your program may have
+    several variations of Builders, implemented differently.
 
-    RU: Классы Конкретного Строителя следуют интерфейсу Строителя и предоставляют
-    конкретные реализации шагов построения. Ваша программа может иметь несколько
-    вариантов Строителей, реализованных по-разному.
+    RU: Классы Конкретного Строителя следуют интерфейсу Строителя и
+    предоставляют конкретные реализации шагов построения. Ваша программа может
+    иметь несколько вариантов Строителей, реализованных по-разному.
     """
 
     def __init__(self) -> None:
         """
-        EN: A fresh builder instance should contain a blank product object, which
-        is used in further assembly.
+        EN: A fresh builder instance should contain a blank product object,
+        which is used in further assembly.
 
         RU: Новый экземпляр строителя должен содержать пустой объект продукта,
         который используется в дальнейшей сборке.
@@ -76,11 +75,11 @@ class ConcreteBuilder1(Builder):
         Therefore, such methods cannot be declared in the base Builder interface
         (at least in a statically typed programming language).
 
-        Usually, after returning the end result to the client, a builder instance
-        is expected to be ready to start producing another product. That's why
-        it's a usual practice to call the reset method at the end of the
-        `getProduct` method body. However, this behavior is not mandatory, and
-        you can make your builders wait for an explicit reset call from the
+        Usually, after returning the end result to the client, a builder
+        instance is expected to be ready to start producing another product.
+        That's why it's a usual practice to call the reset method at the end of
+        the `getProduct` method body. However, this behavior is not mandatory,
+        and you can make your builders wait for an explicit reset call from the
         client code before disposing of the previous result.
 
         RU: Конкретные Строители должны предоставить свои собственные методы
@@ -125,8 +124,7 @@ class Product1():
 
     В отличие от других порождающих паттернов, различные конкретные строители
     могут производить несвязанные продукты. Другими словами, результаты
-    различных строителей могут не всегда следовать одному и тому же
-    интерфейсу.
+    различных строителей могут не всегда следовать одному и тому же интерфейсу.
     """
 
     def __init__(self) -> None:
@@ -175,9 +173,9 @@ class Director:
     """
     EN: The Director can construct several product variations using the same
     building steps.
-    
-    RU: Директор может строить несколько вариаций продукта, используя
-    одинаковые шаги построения.
+
+    RU: Директор может строить несколько вариаций продукта, используя одинаковые
+    шаги построения.
     """
 
     def build_minimal_viable_product(self) -> None:

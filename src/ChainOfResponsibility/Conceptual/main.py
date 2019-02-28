@@ -1,9 +1,9 @@
 """
 EN: Chain of Responsibility Design Pattern
 
-Intent: Avoid coupling a sender of a request to its receiver by giving more
-than one object a chance to handle the request. Chain the receiving objects
-and then pass the request through the chain until some receiver handles it.
+Intent: Avoid coupling a sender of a request to its receiver by giving more than
+one object a chance to handle the request. Chain the receiving objects and then
+pass the request through the chain until some receiver handles it.
 
 RU: Паттерн Цепочка обязанностей
 
@@ -67,8 +67,8 @@ class AbstractHandler(Handler):
 
 
 """
-EN: All Concrete Handlers either handle a request or pass it to the next
-handler in the chain.
+EN: All Concrete Handlers either handle a request or pass it to the next handler
+in the chain.
 
 RU: Все Конкретные Обработчики либо обрабатывают запрос, либо передают его
 следующему обработчику в цепочке.
@@ -125,11 +125,11 @@ if __name__ == "__main__":
 
     monkey.set_next(squirrel).set_next(dog)
 
-    # EN: The client should be able to send a request to any handler, not just the
-    # first one in the chain.
+    # EN: The client should be able to send a request to any handler, not just
+    # the first one in the chain.
     #
-    # RU: Клиент должен иметь возможность отправлять запрос любому обработчику, а
-    # не только первому в цепочке.
+    # RU: Клиент должен иметь возможность отправлять запрос любому обработчику,
+    # а не только первому в цепочке.
     print("Chain: Monkey > Squirrel > Dog")
     client_code(monkey)
     print("\n")

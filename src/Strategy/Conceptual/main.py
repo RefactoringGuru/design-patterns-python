@@ -39,13 +39,13 @@ class Context():
     @property
     def strategy(self) -> Strategy:
         """
-        EN: The Context maintains a reference to one of the
-        Strategy objects. The Context does not know the concrete class of a
-        strategy. It should work with all strategies via the Strategy interface.
+        EN: The Context maintains a reference to one of the Strategy objects.
+        The Context does not know the concrete class of a strategy. It should
+        work with all strategies via the Strategy interface.
 
-        RU: Контекст хранит ссылку на один из объектов Стратегии.
-        Контекст не знает конкретного класса стратегии. Он должен работать со
-        всеми стратегиями через интерфейс Стратегии.
+        RU: Контекст хранит ссылку на один из объектов Стратегии. Контекст не
+        знает конкретного класса стратегии. Он должен работать со всеми
+        стратегиями через интерфейс Стратегии.
         """
 
         return self._strategy
@@ -100,11 +100,11 @@ class Strategy(ABC):
 
 
 """
- EN: Concrete Strategies implement the algorithm while following the base
- Strategy interface. The interface makes them interchangeable in the Context.
- 
- RU: Конкретные Стратегии реализуют алгоритм, следуя базовому интерфейсу
- Стратегии. Этот интерфейс делает их взаимозаменяемыми в Контексте.
+EN: Concrete Strategies implement the algorithm while following the base
+Strategy interface. The interface makes them interchangeable in the Context.
+
+RU: Конкретные Стратегии реализуют алгоритм, следуя базовому интерфейсу
+Стратегии. Этот интерфейс делает их взаимозаменяемыми в Контексте.
 """
 
 
@@ -119,13 +119,13 @@ class ConcreteStrategyB(Strategy):
 
 
 if __name__ == "__main__":
-    # EN: The client code picks a concrete strategy and passes it to the context.
-    # The client should be aware of the differences between strategies in order to
-    # make the right choice.
+    # EN: The client code picks a concrete strategy and passes it to the
+    # context. The client should be aware of the differences between strategies
+    # in order to make the right choice.
     #
     # RU: Клиентский код выбирает конкретную стратегию и передаёт её в контекст.
-    # Клиент должен знать о различиях между стратегиями, чтобы сделать правильный
-    # выбор.
+    # Клиент должен знать о различиях между стратегиями, чтобы сделать
+    # правильный выбор.
 
     context = Context(ConcreteStrategyA())
     print("Client: Strategy is set to normal sorting.")

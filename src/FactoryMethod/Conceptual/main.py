@@ -2,14 +2,14 @@
 EN: Factory Method Design Pattern
 
 Intent: Define an interface for creating an object, but let subclasses decide
-which class to instantiate. Factory Method lets a class defer instantiation
-to subclasses.
+which class to instantiate. Factory Method lets a class defer instantiation to
+subclasses.
 
 RU: Паттерн Фабричный Метод
 
-Назначение: Определяет интерфейс для создания объекта, но позволяет
-подклассам решать, какого класса создавать экземпляр. Фабричный Метод
-позволяет классу делегировать создание экземпляра подклассам.
+Назначение: Определяет интерфейс для создания объекта, но позволяет подклассам
+решать, какого класса создавать экземпляр. Фабричный Метод позволяет классу
+делегировать создание экземпляра подклассам.
 """
 
 
@@ -50,10 +50,10 @@ class Creator(ABC):
 
         RU: Также заметьте, что, несмотря на название, основная обязанность
         Создателя не заключается в создании продуктов. Обычно он содержит
-        некоторую базовую бизнес-логику, которая основана на объектах
-        Продуктов, возвращаемых фабричным методом. Подклассы могут косвенно
-        изменять эту бизнес-логику, переопределяя фабричный метод и возвращая из
-        него другой тип продукта.
+        некоторую базовую бизнес-логику, которая основана на объектах Продуктов,
+        возвращаемых фабричным методом. Подклассы могут косвенно изменять эту
+        бизнес-логику, переопределяя фабричный метод и возвращая из него другой
+        тип продукта.
         """
 
         # EN: Call the factory method to create a Product object.
@@ -73,22 +73,21 @@ class Creator(ABC):
 EN: Concrete Creators override the factory method in order to change the
 resulting product's type.
 
-RU: Конкретные Создатели переопределяют фабричный метод для того, чтобы
-изменить тип результирующего продукта.
+RU: Конкретные Создатели переопределяют фабричный метод для того, чтобы изменить
+тип результирующего продукта.
 """
 
 
 class ConcreteCreator1(Creator):
     """
     EN: Note that the signature of the method still uses the abstract product
-    type, even though the concrete product is actually returned from the
-    method. This way the Creator can stay independent of concrete product
-    classes.
+    type, even though the concrete product is actually returned from the method.
+    This way the Creator can stay independent of concrete product classes.
 
     RU: Обратите внимание, что сигнатура метода по-прежнему использует тип
     абстрактного продукта, хотя фактически из метода возвращается конкретный
-    продукт. Таким образом, Создатель может оставаться независимым от
-    конкретных классов продуктов.
+    продукт. Таким образом, Создатель может оставаться независимым от конкретных
+    классов продуктов.
     """
 
     def factory_method(self) -> ConcreteProduct1:
@@ -115,11 +114,9 @@ class Product(ABC):
 
 
 """
-EN: Concrete Products provide various implementations of the Product
-interface.
+EN: Concrete Products provide various implementations of the Product interface.
 
-RU: Конкретные Продукты предоставляют различные реализации интерфейса
-Продукта.
+RU: Конкретные Продукты предоставляют различные реализации интерфейса Продукта.
 """
 
 
@@ -139,9 +136,9 @@ def client_code(creator: Creator) -> None:
     through its base interface. As long as the client keeps working with the
     creator via the base interface, you can pass it any creator's subclass.
 
-    RU: Клиентский код работает с экземпляром конкретного создателя, хотя и через
-    его базовый интерфейс. Пока клиент продолжает работать с создателем через
-    базовый интерфейс, вы можете передать ему любой подкласс создателя.
+    RU: Клиентский код работает с экземпляром конкретного создателя, хотя и
+    через его базовый интерфейс. Пока клиент продолжает работать с создателем
+    через базовый интерфейс, вы можете передать ему любой подкласс создателя.
     """
 
     print(f"Client: I'm not aware of the creator's class, but it still works.\n"

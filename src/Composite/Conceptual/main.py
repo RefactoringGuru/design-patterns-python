@@ -2,8 +2,8 @@
 EN: Composite Design Pattern
 
 Intent: Compose objects into tree structures to represent part-whole
-hierarchies. Composite lets clients treat individual objects and compositions
-of objects uniformly.
+hierarchies. Composite lets clients treat individual objects and compositions of
+objects uniformly.
 
 RU: Паттерн Компоновщик
 
@@ -50,13 +50,13 @@ class Component(ABC):
     EN: In some cases, it would be beneficial to define the child-management
     operations right in the base Component class. This way, you won't need to
     expose any concrete component classes to the client code, even during the
-    object tree assembly. The downside is that these methods will be empty
-    for the leaf-level components.
-    
+    object tree assembly. The downside is that these methods will be empty for
+    the leaf-level components.
+
     RU: В некоторых случаях целесообразно определить операции управления
     потомками прямо в базовом классе Компонент. Таким образом, вам не нужно
-    будет предоставлять конкретные классы компонентов клиентскому коду, даже
-    во время сборки дерева объектов. Недостаток такого подхода в том, что эти
+    будет предоставлять конкретные классы компонентов клиентскому коду, даже во
+    время сборки дерева объектов. Недостаток такого подхода в том, что эти
     методы будут пустыми для компонентов уровня листа.
     """
 
@@ -128,9 +128,9 @@ class Composite(Component):
     """
     EN: A composite object can add or remove other components (both simple or
     complex) to or from its child list.
-    
-    RU: Объект контейнера может как добавлять компоненты в свой список
-    вложенных компонентов, так и удалять их, как простые, так и сложные.
+
+    RU: Объект контейнера может как добавлять компоненты в свой список вложенных
+    компонентов, так и удалять их, как простые, так и сложные.
     """
 
     def add(self, component: Component) -> None:

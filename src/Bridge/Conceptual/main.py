@@ -1,8 +1,8 @@
 """
 EN: Bridge Design Pattern
 
-Intent: Decouple an abstraction from its implementation so that the two can
-vary independently.
+Intent: Decouple an abstraction from its implementation so that the two can vary
+independently.
 
               A
            /     \                        A         N
@@ -80,11 +80,11 @@ class Implementation(ABC):
 
 
 """
- EN: Each Concrete Implementation corresponds to a specific platform and
- implements the Implementation interface using that platform's API.
- 
- RU: Каждая Конкретная Реализация соответствует определённой платформе и
- реализует интерфейс Реализации с использованием API этой платформы.
+EN: Each Concrete Implementation corresponds to a specific platform and
+implements the Implementation interface using that platform's API.
+
+RU: Каждая Конкретная Реализация соответствует определённой платформе и
+реализует интерфейс Реализации с использованием API этой платформы.
 """
 
 

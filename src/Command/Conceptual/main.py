@@ -7,9 +7,9 @@ undoable operations.
 
 RU: Паттерн Команда
 
-Назначение: Инкапсулирует запрос как объект, позволяя тем
-самым параметризовать клиентов с различными запросами (например, запросами
-очереди или логирования) и поддерживать отмену операций.
+Назначение: Инкапсулирует запрос как объект, позволяя тем самым параметризовать
+клиентов с различными запросами (например, запросами очереди или логирования) и
+поддерживать отмену операций.
 """
 
 
@@ -81,9 +81,9 @@ class ComplexCommand(Command):
 
 class Receiver:
     """
-    EN: The Receiver classes contain some important business logic. They know how
-    to perform all kinds of operations, associated with carrying out a request.
-    In fact, any class may serve as a Receiver.
+    EN: The Receiver classes contain some important business logic. They know
+    how to perform all kinds of operations, associated with carrying out a
+    request. In fact, any class may serve as a Receiver.
 
     RU: Классы Получателей содержат некую важную бизнес-логику. Они умеют
     выполнять все виды операций, связанных с выполнением запроса. Фактически,
@@ -102,8 +102,8 @@ class Invoker:
     EN: The Invoker is associated with one or several commands. It sends a
     request to the command.
 
-    RU: Отправитель связан с одной или несколькими командами. Он отправляет запрос
-    команде.
+    RU: Отправитель связан с одной или несколькими командами. Он отправляет
+    запрос команде.
     """
 
     _on_start = None
@@ -111,7 +111,7 @@ class Invoker:
 
     """
     EN: Initialize commands.
-    
+
     RU: Инициализация команд.
     """
 

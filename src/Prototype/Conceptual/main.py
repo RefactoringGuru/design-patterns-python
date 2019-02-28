@@ -1,8 +1,8 @@
 """
 EN: Prototype Design Pattern
 
-Intent: Produce new objects by copying existing ones without compromising
-their internal structure.
+Intent: Produce new objects by copying existing ones without compromising their
+internal structure.
 
 RU: Паттерн Прототип
 
@@ -59,9 +59,9 @@ class Prototype:
         self.component = deepcopy(self.component)
 
         # EN: Cloning an object that has a nested object with backreference
-        # requires special treatment. After the cloning is completed, the
-        # nested object should point to the cloned object, instead of the
-        # original object.
+        # requires special treatment. After the cloning is completed, the nested
+        # object should point to the cloned object, instead of the original
+        # object.
         #
         # RU: Клонирование объекта, который имеет вложенный объект с обратной
         # ссылкой, требует специального подхода. После завершения клонирования

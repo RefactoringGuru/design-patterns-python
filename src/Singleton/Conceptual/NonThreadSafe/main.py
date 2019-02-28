@@ -1,8 +1,8 @@
 """
 EN: Singleton Design Pattern
 
-Intent: Ensure that a class has a single instance, and provide a global point
-of access to it.
+Intent: Ensure that a class has a single instance, and provide a global point of
+access to it.
 
 RU: Паттерн Одиночка
 

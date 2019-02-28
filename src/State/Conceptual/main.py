@@ -1,8 +1,8 @@
 """
 EN: State Design Pattern
 
-Intent: Allow an object to alter its behavior when its internal state
-changes. The object will appear to change its class.
+Intent: Allow an object to alter its behavior when its internal state changes.
+The object will appear to change its class.
 
 RU: Паттерн Состояние
 
@@ -29,7 +29,7 @@ class Context(ABC):
     _state = None
     """
     EN: A reference to the current state of the Context.
-    
+
     RU: Ссылка на текущее состояние Контекста.
     """
 
@@ -48,11 +48,9 @@ class Context(ABC):
         self._state.context = self
 
     """
-    EN: The Context delegates part of its behavior to the current State
-    object.
-    
-    RU: Контекст делегирует часть своего поведения текущему объекту
-    Состояния.
+    EN: The Context delegates part of its behavior to the current State object.
+
+    RU: Контекст делегирует часть своего поведения текущему объекту Состояния.
     """
 
     def request1(self):
@@ -93,8 +91,8 @@ class State(ABC):
 
 
 """
-EN: Concrete States implement various behaviors, associated with a state of
-the Context.
+EN: Concrete States implement various behaviors, associated with a state of the
+Context.
 
 RU: Конкретные Состояния реализуют различные модели поведения, связанные с
 состоянием Контекста.

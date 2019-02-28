@@ -2,14 +2,14 @@
 EN: Template Method Design Pattern
 
 Intent: Define the skeleton of an algorithm, deferring implementation of some
-steps to subclasses. Template Method lets subclasses redefine specific steps
-of an algorithm without changing the algorithm's structure.
+steps to subclasses. Template Method lets subclasses redefine specific steps of
+an algorithm without changing the algorithm's structure.
 
 RU: Паттерн Шаблонный метод
 
-Назначение: Определяет общую схему алгоритма, перекладывая реализацию
-некоторых шагов на подклассы. Шаблонный метод позволяет подклассам
-переопределять отдельные шаги алгоритма без изменения структуры алгоритма.
+Назначение: Определяет общую схему алгоритма, перекладывая реализацию некоторых
+шагов на подклассы. Шаблонный метод позволяет подклассам переопределять
+отдельные шаги алгоритма без изменения структуры алгоритма.
 """
 
 
@@ -19,10 +19,11 @@ from abc import ABC, abstractmethod
 class AbstractClass(ABC):
     """
     EN: The Abstract Class defines a template method that contains a skeleton of
-    some algorithm, composed of calls to (usually) abstract primitive operations.
+    some algorithm, composed of calls to (usually) abstract primitive
+    operations.
 
-    Concrete subclasses should implement these operations, but leave the template
-    method itself intact.
+    Concrete subclasses should implement these operations, but leave the
+    template method itself intact.
 
     RU: Абстрактный Класс определяет шаблонный метод, содержащий скелет
     некоторого алгоритма, состоящего из вызовов (обычно) абстрактных примитивных
@@ -73,9 +74,9 @@ class AbstractClass(ABC):
         pass
 
     # EN: These are "hooks." Subclasses may override them, but it's not
-    # mandatory since the hooks already have default (but empty)
-    # implementation. Hooks provide additional extension points in some crucial
-    # places of the algorithm.
+    # mandatory since the hooks already have default (but empty) implementation.
+    # Hooks provide additional extension points in some crucial places of the
+    # algorithm.
     #
     # RU: Это «хуки». Подклассы могут переопределять их, но это не обязательно,
     # поскольку у хуков уже есть стандартная (но пустая) реализация. Хуки

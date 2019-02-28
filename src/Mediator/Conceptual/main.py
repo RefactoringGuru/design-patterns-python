@@ -1,16 +1,16 @@
 """
- EN: Mediator Design Pattern
- 
- Intent: Define an object that encapsulates how a set of objects interact.
- Mediator promotes loose coupling by keeping objects from referring to each
- other explicitly, and it lets you vary their interaction independently.
- 
- RU: Паттерн Посредник
- 
- Назначение: Определяет объект, который инкапсулирует взаимодействие набора
- объектов. Посредник способствует слабой связанности, удерживая объекты от
- обращения друг к другу напрямую, и это позволяет вам менять их взаимодействие
- независимо.
+EN: Mediator Design Pattern
+
+Intent: Define an object that encapsulates how a set of objects interact.
+Mediator promotes loose coupling by keeping objects from referring to each other
+explicitly, and it lets you vary their interaction independently.
+
+RU: Паттерн Посредник
+
+Назначение: Определяет объект, который инкапсулирует взаимодействие набора
+объектов. Посредник способствует слабой связанности, удерживая объекты от
+обращения друг к другу напрямую, и это позволяет вам менять их взаимодействие
+независимо.
 """
 
 
@@ -75,9 +75,9 @@ class BaseComponent:
 EN: Concrete Components implement various functionality. They don't depend on
 other components. They also don't depend on any concrete mediator classes.
 
-RU: Конкретные Компоненты реализуют различную функциональность. Они не
-зависят от других компонентов. Они также не зависят от каких-либо конкретных
-классов посредников.
+RU: Конкретные Компоненты реализуют различную функциональность. Они не зависят
+от других компонентов. Они также не зависят от каких-либо конкретных классов
+посредников.
 """
 
 

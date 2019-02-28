@@ -1,26 +1,24 @@
 """
 EN: Observer Design Pattern
 
-Intent: Define a one-to-many dependency between objects so that when one
-object changes state, all of its dependents are notified and updated
-automatically.
+Intent: Define a one-to-many dependency between objects so that when one object
+changes state, all of its dependents are notified and updated automatically.
 
-Note that there's a lot of different terms with similar meaning associated
-with this pattern. Just remember that the Subject is also called the
-Publisher and the Observer is often called the Subscriber and vice versa.
-Also the verbs "observe", "listen" or "track" usually mean the same thing.
+Note that there's a lot of different terms with similar meaning associated with
+this pattern. Just remember that the Subject is also called the Publisher and
+the Observer is often called the Subscriber and vice versa. Also the verbs
+"observe", "listen" or "track" usually mean the same thing.
 
 RU: Паттерн Наблюдатель
 
 Назначение: Устанавливает между объектами зависимость «один ко многим» таким
-образом, что когда изменяется состояние одного объекта, все зависимые от
-него объекты оповещаются и обновляются автоматически.
+образом, что когда изменяется состояние одного объекта, все зависимые от него
+объекты оповещаются и обновляются автоматически.
 
 Обратите внимание, что существует множество различных терминов с похожими
 значениями, связанных с этим паттерном. Просто помните, что Субъекта также
-называют Издателем, а Наблюдателя часто называют Подписчиком и наоборот.
-Также глаголы «наблюдать», «слушать» или «отслеживать» обычно означают одно
-и то же.
+называют Издателем, а Наблюдателя часто называют Подписчиком и наоборот. Также
+глаголы «наблюдать», «слушать» или «отслеживать» обычно означают одно и то же.
 """
 
 
@@ -32,9 +30,11 @@ from typing import List
 
 class Subject(ABC):
     """
-    EN: The Subject interface declares a set of methods for managing subscribers.
+    EN: The Subject interface declares a set of methods for managing
+    subscribers.
 
-    RU: Интферфейс издателя объявляет набор методов для управлениями подпискичами.
+    RU: Интферфейс издателя объявляет набор методов для управлениями
+    подпискичами.
     """
 
     @abstractmethod
@@ -76,21 +76,20 @@ class ConcreteSubject(Subject):
 
     _state: int = None
     """
-     EN: For the sake of simplicity, the Subject's state, essential
-     to all subscribers, is stored in this variable.
-     
-     RU: Для удобства в этой переменной хранится состояние Издателя,
-     необходимое всем подписчикам.
+    EN: For the sake of simplicity, the Subject's state, essential to all
+    subscribers, is stored in this variable.
+
+    RU: Для удобства в этой переменной хранится состояние Издателя, необходимое
+    всем подписчикам.
     """
 
     _observers: List[Observer] = []
     """
-    EN: List of subscribers. In real life, the list of subscribers
-    can be stored more comprehensively (categorized by event type, etc.).
+    EN: List of subscribers. In real life, the list of subscribers can be stored
+    more comprehensively (categorized by event type, etc.).
 
-    RU: Список подписчиков. В реальной жизни список подписчиков
-    может храниться в более подробном виде (классифицируется по типу события
-    и т.д.)
+    RU: Список подписчиков. В реальной жизни список подписчиков может храниться
+    в более подробном виде (классифицируется по типу события и т.д.)
     """
 
     def attach(self, observer: Observer) -> None:
@@ -156,8 +155,8 @@ class Observer(ABC):
 
 
 """
-EN: Concrete Observers react to the updates issued by the Subject they had
-been attached to.
+EN: Concrete Observers react to the updates issued by the Subject they had been
+attached to.
 
 RU: Конкретные Наблюдатели реагируют на обновления, выпущенные Издателем, к
 которому они прикреплены.

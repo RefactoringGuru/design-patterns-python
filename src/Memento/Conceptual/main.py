@@ -7,8 +7,8 @@ can be restored to this state later, without violating encapsulation.
 RU: Паттерн Снимок
 
 Назначение: Фиксирует и восстанавливает внутреннее состояние объекта таким
-образом, чтобы в дальнейшем объект можно было восстановить в этом состоянии
-без нарушения инкапсуляции.
+образом, чтобы в дальнейшем объект можно было восстановить в этом состоянии без
+нарушения инкапсуляции.
 """
 
 
@@ -32,11 +32,10 @@ class Originator():
 
     _state = None
     """
-    EN: For the sake of simplicity, the originator's state is
-    stored inside a single variable.
-    
-    RU: Для удобства состояние создателя хранится внутри одной
-    переменной.
+    EN: For the sake of simplicity, the originator's state is stored inside a
+    single variable.
+
+    RU: Для удобства состояние создателя хранится внутри одной переменной.
     """
 
     def __init__(self, state: str) -> None:
@@ -46,12 +45,12 @@ class Originator():
     def do_something(self) -> None:
         """
         EN: The Originator's business logic may affect its internal state.
-        Therefore, the client should backup the state before launching methods of
-        the business logic via the save() method.
+        Therefore, the client should backup the state before launching methods
+        of the business logic via the save() method.
 
         RU: Бизнес-логика Создателя может повлиять на его внутреннее состояние.
-        Поэтому клиент должен выполнить резервное копирование состояния с помощью
-        метода save перед запуском методов бизнес-логики.
+        Поэтому клиент должен выполнить резервное копирование состояния с
+        помощью метода save перед запуском методов бизнес-логики.
         """
 
         print("Originator: I'm doing something important.")
@@ -87,8 +86,9 @@ class Memento(ABC):
     such as creation date or name. However, it doesn't expose the Originator's
     state.
 
-    RU: Интерфейс Снимка предоставляет способ извлечения метаданных снимка, таких
-    как дата создания или название. Однако он не раскрывает состояние Создателя.
+    RU: Интерфейс Снимка предоставляет способ извлечения метаданных снимка,
+    таких как дата создания или название. Однако он не раскрывает состояние
+    Создателя.
     """
 
     @abstractmethod
