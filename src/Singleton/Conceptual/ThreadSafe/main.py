@@ -76,7 +76,7 @@ class Singleton(metaclass=SingletonMeta):
     RU: Мы используем это поле, чтобы доказать, что наш Одиночка
     действительно работает.
     """
-    
+
     def __init__(self, value: str) -> None:
         self.value = value
 
