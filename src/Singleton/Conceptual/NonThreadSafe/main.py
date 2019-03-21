@@ -17,11 +17,13 @@ from typing import Optional
 
 class Singleton:
     """
-    EN: The Singleton class defines the `getInstance` method that lets clients
-    access the unique singleton instance.
+    EN: The Singleton class defines the `get_instance` method that serves as
+    an alternative to constructor and lets clients access the same instance
+    of this class over and over.
 
-    RU: Класс Одиночка предоставляет метод getInstance, который позволяет
-    клиентам получить доступ к уникальному экземпляру одиночки.
+    RU: Класс Одиночка предоставляет метод `get_instance`, который ведёт себя
+    как альтернативный конструктор и позволяет клиентам получать один и тот
+    же экземпляр класса при каждом вызове.
     """
 
     _instance: Optional[Singleton] = None
