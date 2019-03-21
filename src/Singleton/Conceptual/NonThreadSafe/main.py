@@ -15,44 +15,26 @@ from __future__ import annotations
 from typing import Optional
 
 
-class Singleton:
+class SingletonMeta(type):
     """
-    EN: The Singleton class defines the `get_instance` method that serves as
-    an alternative to constructor and lets clients access the same instance
-    of this class over and over.
+    EN: The Singleton class can be implemented in different ways in Python. Some
+    possible methods include: base class, decorator, metaclass. We will use the
+    metaclass because it is best suited for this purpose.
 
-    RU: Класс Одиночка предоставляет метод `get_instance`, который ведёт себя
-    как альтернативный конструктор и позволяет клиентам получать один и тот
-    же экземпляр класса при каждом вызове.
+    RU: В Python класс Одиночка можно реализовать по-разному. Возможные
+    способы включают себя базовый класс, декоратор, метакласс. Мы воспользуемся
+    метаклассом, поскольку он лучше всего подходит для этой цели. 
     """
 
     _instance: Optional[Singleton] = None
 
-    def __init__(self) -> None:
-        if Singleton._instance is not None:
-            raise ReferenceError("Cannot instantiate a singleton class.")
-        else:
-            Singleton._instance = self
+    def __call__(self) -> Singleton:
+        if self._instance is None:
+            self._instance = super().__call__()
+        return self._instance
 
-    @staticmethod
-    def get_instance() -> Singleton:
-        """
-        EN: The static method that controls the access to the singleton
-        instance.
 
-        This implementation let you subclass the Singleton class while keeping
-        just one instance of each subclass around.
-
-        RU: Статический метод, управляющий доступом к экземпляру одиночки.
-
-        Эта реализация позволяет вам расширять класс Одиночки, сохраняя повсюду
-        только один экземпляр каждого подкласса.
-        """
-
-        if not Singleton._instance:
-            Singleton()
-        return Singleton._instance
-
+class Singleton(metaclass=SingletonMeta):
     def some_business_logic(self):
         """
         EN: Finally, any singleton should define some business logic, which can
@@ -70,8 +52,8 @@ if __name__ == "__main__":
     #
     # RU: Клиентский код.
 
-    s1 = Singleton.get_instance()
-    s2 = Singleton.get_instance()
+    s1 = Singleton()
+    s2 = Singleton()
 
     if id(s1) == id(s2):
         print("Singleton works, both variables contain the same instance.")
