@@ -8,7 +8,7 @@ Each pattern includes two examples:
 
 - **Conceptual** examples show the internal structure of patterns, including detailed comments.
 
-- **RealWorld** examples show how patterns can be used in real-world Python applications.
+- [todo] **RealWorld** examples show how patterns can be used in real-world Python applications.
 
 
 ## Requirements
