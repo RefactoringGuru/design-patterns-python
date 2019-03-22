@@ -74,4 +74,4 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-NoDeriv
 
 ## Credits
 
-Authors: Alexey Pyltsyn and Alexander Shvets
+Authors: Alexey Pyltsyn (@lex111) and Alexander Shvets (@neochief)
