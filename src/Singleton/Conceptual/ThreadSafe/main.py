@@ -16,44 +16,69 @@ from threading import Lock, Thread
 from typing import Optional
 
 
-class Singleton:
+class SingletonMeta(type):
     """
-    EN: The Singleton class defines the `getInstance` method that lets clients
-    access the unique singleton instance.
+    EN: This is a thread-safe implementation of Singleton.
 
-    RU: Класс Одиночка предоставляет метод getInstance, который позволяет
-    клиентам получить доступ к уникальному экземпляру одиночки.
+    RU: Это потокобезопасная реализация класса Singleton.
     """
 
     _instance: Optional[Singleton] = None
 
     _lock: Lock = Lock()
+    """
+    We now have a lock object that will be used to synchronize
+    threads during first access to the Singleton.
+    
+    RU: У нас теперь есть объект-блокировка для синхронизации потоков во
+    время первого доступа к Одиночке.
+    """
 
-    value: str
+    def __call__(cls, *args, **kwargs):
+        # EN: Now, imagine that the program has just been launched.
+        # Since there's no Singleton instance yet, multiple threads can
+        # simultaneously pass the previous conditional and reach this
+        # point almost at the same time. The first of them will acquire
+        # lock and will proceed further, while the rest will wait here.
+        #
+        # RU: Теперь представьте, что программа была только-только
+        # запущена. Объекта-одиночки ещё никто не создавал, поэтому
+        # несколько потоков вполне могли одновременно пройти через
+        # предыдущее условие и достигнуть блокировки. Самый быстрый
+        # поток поставит блокировку и двинется внутрь секции, пока
+        # другие будут здесь его ожидать.
+        with cls._lock:
+            # EN: The first thread to acquire the lock, reaches this
+            # conditional, goes inside and creates the Singleton
+            # instance. Once it leaves the lock block, a thread that
+            # might have been waiting for the lock release may then
+            # enter this section. But since the Singleton field is
+            # already initialized, the thread won't create a new
+            # object.
+            #
+            # RU: Первый поток достигает этого условия и проходит внутрь,
+            # создавая объект-одиночку. Как только этот поток покинет
+            # секцию и освободит блокировку, следующий поток может
+            # снова установить блокировку и зайти внутрь. Однако теперь
+            # экземпляр одиночки уже будет создан и поток не сможет
+            # пройти через это условие, а значит новый объект не будет
+            # создан.
+            if not cls._instance:
+                cls._instance = super().__call__(*args, **kwargs)
+        return cls._instance
+
+
+class Singleton(metaclass=SingletonMeta):
+    value: str = None
+    """
+    EN: We'll use this property to prove that our Singleton really works.
+    
+    RU: Мы используем это поле, чтобы доказать, что наш Одиночка
+    действительно работает.
+    """
 
     def __init__(self, value: str) -> None:
         self.value = value
-
-    @staticmethod
-    def get_instance(value: str) -> Singleton:
-        """
-        EN: The static method that controls the access to the singleton
-        instance.
-
-        This implementation let you subclass the Singleton class while keeping
-        just one instance of each subclass around.
-
-        RU: Статический метод, управляющий доступом к экземпляру одиночки.
-
-        Эта реализация позволяет вам расширять класс Одиночки, сохраняя повсюду
-        только один экземпляр каждого подкласса.
-        """
-
-        if not Singleton._instance:
-            with Singleton._lock:
-                if not Singleton._instance:
-                    Singleton._instance = Singleton(value)
-        return Singleton._instance
 
     def some_business_logic(self):
         """
@@ -64,11 +89,9 @@ class Singleton:
         которая может быть выполнена на его экземпляре.
         """
 
-        # ...
-
 
 def test_singleton(value: str) -> None:
-    singleton = Singleton.get_instance(value)
+    singleton = Singleton(value)
     print(singleton.value)
 
 
