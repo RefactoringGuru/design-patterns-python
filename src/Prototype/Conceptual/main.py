@@ -1,117 +1,150 @@
-"""
-EN: Prototype Design Pattern
-
-Intent: Lets you copy existing objects without making your code dependent on
-their classes.
-
-RU: Паттерн Прототип
-
-Назначение: Позволяет копировать объекты, не вдаваясь в подробности их
-реализации.
-"""
+import copy
 
 
-from __future__ import annotations
-from datetime import datetime
-from copy import deepcopy
-from typing import Any
+class SelfReferencingEntity:
+    def __init__(self):
+        self.parent = None
+
+    def set_parent(self, parent):
+        self.parent = parent
 
 
-class Prototype:
+class SomeComponent:
     """
-    EN: The example class that has cloning ability. We'll see how the values of
-    field with different types will be cloned.
-
-    RU: Пример класса, имеющего возможность клонирования. Мы посмотрим как
-    происходит клонирование значений полей разных типов.
+    Python provides its own interface of Prototype via `copy.copy` and
+    `copy.deepcopy` functions. And any class that wants to implement custom
+    implementations have to override `__copy__` and `__deepcopy__` member
+    functions.
     """
 
-    def __init__(self) -> None:
-        self._primitive = None
-        self._component = None
-        self._circular_reference = None
+    def __init__(self, some_int, some_list_of_objects, some_circular_ref):
+        self.some_int = some_int
+        self.some_list_of_objects = some_list_of_objects
+        self.some_circular_ref = some_circular_ref
 
-    @property
-    def primitive(self) -> Any:
-        return self._primitive
+    def __copy__(self):
+        """
+        Create a shallow copy. This method will be called whenever someone calls
+        `copy.copy` with this object and the returned value is returned as the
+        new shallow copy.
+        """
+        new = self.__class__(
+            self.some_int, self.some_list_of_objects, self.some_circular_ref
+        )
+        new.__dict__.update(self.__dict__)
 
-    @primitive.setter
-    def primitive(self, value: Any) -> None:
-        self._primitive = value
+        # The new object has a new list of objects but with same
+        # objects(shared).
+        new.some_list_of_objects = copy.copy(self.some_list_of_objects)
+        new.some_circular_ref = copy.copy(self.some_circular_ref)
+        return new
 
-    @property
-    def component(self) -> object:
-        return self._component
+    def __deepcopy__(self, memo={}):
+        """
+        Create a deep copy. This method will be called whenever someone calls
+        `copy.deepcopy` with this object and the returned value is returned as
+        the new deep copy.
 
-    @component.setter
-    def component(self, value: object) -> None:
-        self._component = value
+        What is the use of the argument `memo`?
+        Memo is the dictionary that is used by the `deepcopy` library to prevent
+        infinite recursive copies in instances of circular references. Pass it
+        to all the `deepcopy` calls you make in the `__deepcopy__` implementation
+        to prevent infinite recursions.
+        """
+        new = self.__class__(
+            self.some_int, self.some_list_of_objects, self.some_circular_ref
+        )
+        new.__dict__.update(self.__dict__)
 
-    @property
-    def circular_reference(self) -> ComponentWithBackReference:
-        return self._circular_reference
-
-    @circular_reference.setter
-    def circular_reference(self, value: ComponentWithBackReference) -> None:
-        self._circular_reference = value
-
-    def clone(self) -> Prototype:
-        self.component = deepcopy(self.component)
-
-        # EN: Cloning an object that has a nested object with backreference
-        # requires special treatment. After the cloning is completed, the nested
-        # object should point to the cloned object, instead of the original
-        # object.
-        #
-        # RU: Клонирование объекта, который имеет вложенный объект с обратной
-        # ссылкой, требует специального подхода. После завершения клонирования
-        # вложенный объект должен указывать на клонированный объект, а не на
-        # исходный объект.
-        self.circular_reference = deepcopy(self.circular_reference)
-        self.circular_reference.prototype = self
-        return deepcopy(self)
-
-
-class ComponentWithBackReference:
-    def __init__(self, prototype: Prototype):
-        self._prototype = prototype
-
-    @property
-    def prototype(self) -> Prototype:
-        return self._prototype
-
-    @prototype.setter
-    def prototype(self, value: Prototype) -> None:
-        self._prototype = value
+        # The new object has a new list of objects with different copy of those
+        # objects.
+        new.some_list_of_objects = copy.deepcopy(self.some_list_of_objects, memo)
+        new.some_circular_ref = copy.deepcopy(self.some_circular_ref, memo)
+        return new
 
 
 if __name__ == "__main__":
-    # EN: The client code.
-    #
-    # RU: Клиентский код.
-    p1 = Prototype()
-    p1.primitive = 245
-    p1.component = datetime.now()
-    p1.circular_reference = ComponentWithBackReference(p1)
 
-    p2 = p1.clone()
+    list_of_objects = [1, {1, 2, 3}, [1, 2, 3]]
+    circular_ref = SelfReferencingEntity()
+    component = SomeComponent(23, list_of_objects, circular_ref)
+    circular_ref.set_parent(component)
 
-    if p1.primitive is p2.primitive:
-        print("Primitive field values have been carried over to a clone. Yay!")
+    shallow_copied_component = copy.copy(component)
+
+    # Let's change the list in shallow_copied_component and see if it changes in
+    # component.
+    shallow_copied_component.some_list_of_objects.append("another object")
+    if component.some_list_of_objects[-1] == "another object":
+        print(
+            "Adding elements to `shallow_copied_component`'s "
+            "some_list_of_objects adds it to `component`'s "
+            "some_list_of_objects."
+        )
     else:
-        print("Primitive field values have not been copied. Booo!")
+        print(
+            "Adding elements to `shallow_copied_component`'s "
+            "some_list_of_objects doesn't add it to `component`'s "
+            "some_list_of_objects."
+        )
 
-    if p1.component is p2.component:
-        print("Simple component has not been cloned. Booo!")
+    # Let's change the set in the list of objects.
+    component.some_list_of_objects[1].add(4)
+    if 4 in shallow_copied_component.some_list_of_objects[1]:
+        print(
+            "Changing objects in the `component`'s some_list_of_objects "
+            "changes that object in `shallow_copied_component`'s "
+            "some_list_of_objects."
+        )
     else:
-        print("Simple component has been cloned. Yay!")
+        print(
+            "Changing objects in the `component`'s some_list_of_objects "
+            "doesn't change that object in `shallow_copied_component`'s "
+            "some_list_of_objects."
+        )
 
-    if p1.circular_reference is p2.circular_reference:
-        print("Component with back reference has not been cloned. Booo!")
-    else:
-        print("Component with back reference has been cloned. Yay!")
+    deep_copied_component = copy.deepcopy(component)
 
-    if p1.circular_reference.prototype is p2.circular_reference.prototype:
-        print("Component with back reference is linked to original object. Booo!", end="")
+    # Let's change the list in shallow_copied_component and see if it changes in
+    # component.
+    deep_copied_component.some_list_of_objects.append("another object")
+    if component.some_list_of_objects[-1] == "another object":
+        print(
+            "Adding elements to `deep_copied_component`'s "
+            "some_list_of_objects adds it to `component`'s "
+            "some_list_of_objects."
+        )
     else:
-        print("Component with back reference is linked to the clone. Yay!", end="")
+        print(
+            "Adding elements to `deep_copied_component`'s "
+            "some_list_of_objects doesn't add it to `component`'s "
+            "some_list_of_objects."
+        )
+
+    # Let's change the set in the list of objects.
+    component.some_list_of_objects[1].add(10)
+    if 10 in deep_copied_component.some_list_of_objects[1]:
+        print(
+            "Changing objects in the `component`'s some_list_of_objects "
+            "changes that object in `deep_copied_component`'s "
+            "some_list_of_objects."
+        )
+    else:
+        print(
+            "Changing objects in the `component`'s some_list_of_objects "
+            "doesn't change that object in `deep_copied_component`'s "
+            "some_list_of_objects."
+        )
+
+    print(
+        f"id(deep_copied_component.some_circular_ref.parent): "
+        "{id(deep_copied_component.some_circular_ref.parent)}"
+    )
+    print(
+        f"id(deep_copied_component.some_circular_ref.parent.some_circular_ref.parent): "
+        "{id(deep_copied_component.some_circular_ref.parent.some_circular_ref.parent)}"
+    )
+    print(
+        "^^ This shows that deepcopied objects contain same reference, they "
+        "are not cloned repeatedly."
+    )

@@ -1,4 +1,7 @@
-Primitive field values have been carried over to a clone. Yay!
-Simple component has been cloned. Yay!
-Component with back reference has been cloned. Yay!
-Component with back reference is linked to the clone. Yay!
+Adding elements to `shallow_copied_component`'s some_list_of_objects doesn't add it to `component`'s some_list_of_objects.
+Changing objects in the `component`'s some_list_of_objects changes that object in `shallow_copied_component`'s some_list_of_objects.
+Adding elements to `deep_copied_component`'s some_list_of_objects doesn't add it to `component`'s some_list_of_objects.
+Changing objects in the `component`'s some_list_of_objects doesn't change that object in `deep_copied_component`'s some_list_of_objects.
+id(deep_copied_component.some_circular_ref.parent): {id(deep_copied_component.some_circular_ref.parent)}
+id(deep_copied_component.some_circular_ref.parent.some_circular_ref.parent): {id(deep_copied_component.some_circular_ref.parent.some_circular_ref.parent)}
+^^ This shows that deepcopied objects contain same reference, they are not cloned repeatedly.
