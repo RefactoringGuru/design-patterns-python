@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     deep_copied_component = copy.deepcopy(component)
 
-    # Let's change the list in shallow_copied_component and see if it changes in
+    # Let's change the list in deep_copied_component and see if it changes in
     # component.
     deep_copied_component.some_list_of_objects.append("another object")
     if component.some_list_of_objects[-1] == "another object":
