@@ -10,7 +10,7 @@ RU: Паттерн Адаптер
 """
 
 
-class Target():
+class Target:
     """
     EN: The Target defines the domain-specific interface used by the client
     code.
@@ -42,10 +42,10 @@ class Adaptee:
 class Adapter(Target):
     """
     EN: The Adapter makes the Adaptee's interface compatible with the Target's
-    interface.
+    interface via composition.
 
     RU: Адаптер делает интерфейс Адаптируемого класса совместимым с целевым
-    интерфейсом.
+    интерфейсом благодаря агрегации.
     """
 
     def __init__(self, adaptee: Adaptee) -> None:
@@ -72,7 +72,8 @@ if __name__ == "__main__":
     print("\n")
 
     adaptee = Adaptee()
-    print("Client: The Adaptee class has a weird interface. See, I don't understand it:")
+    print("Client: The Adaptee class has a weird interface. "
+          "See, I don't understand it:")
     print(f"Adaptee: {adaptee.specific_request()}", end="\n\n")
 
     print("Client: But I can work with it via the Adapter:")
