@@ -64,7 +64,7 @@ class SomeComponent:
         new = self.__class__(
             self.some_int, some_list_of_objects, some_circular_ref
         )
-        new.__dict__.update(self.__dict__)
+        new.__dict__ = copy.deepcopy(self.__dict__, memo)
 
         return new
 
@@ -113,8 +113,8 @@ if __name__ == "__main__":
 
     # Let's change the list in deep_copied_component and see if it changes in
     # component.
-    deep_copied_component.some_list_of_objects.append("another object")
-    if component.some_list_of_objects[-1] == "another object":
+    deep_copied_component.some_list_of_objects.append("one more object")
+    if component.some_list_of_objects[-1] == "one more object":
         print(
             "Adding elements to `deep_copied_component`'s "
             "some_list_of_objects adds it to `component`'s "
