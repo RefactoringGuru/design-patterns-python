@@ -1,7 +1,7 @@
 Adding elements to `shallow_copied_component`'s some_list_of_objects adds it to `component`'s some_list_of_objects.
 Changing objects in the `component`'s some_list_of_objects changes that object in `shallow_copied_component`'s some_list_of_objects.
-Adding elements to `deep_copied_component`'s some_list_of_objects adds it to `component`'s some_list_of_objects.
-Changing objects in the `component`'s some_list_of_objects changes that object in `deep_copied_component`'s some_list_of_objects.
+Adding elements to `deep_copied_component`'s some_list_of_objects doesn't add it to `component`'s some_list_of_objects.
+Changing objects in the `component`'s some_list_of_objects doesn't change that object in `deep_copied_component`'s some_list_of_objects.
 id(deep_copied_component.some_circular_ref.parent): 4429472784
 id(deep_copied_component.some_circular_ref.parent.some_circular_ref.parent): 4429472784
 ^^ This shows that deepcopied objects contain same reference, they are not cloned repeatedly.
