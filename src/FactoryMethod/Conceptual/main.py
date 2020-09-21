@@ -88,12 +88,12 @@ class ConcreteCreator1(Creator):
     классов продуктов.
     """
 
-    def factory_method(self) -> ConcreteProduct1:
+    def factory_method(self) -> Product:
         return ConcreteProduct1()
 
 
 class ConcreteCreator2(Creator):
-    def factory_method(self) -> ConcreteProduct2:
+    def factory_method(self) -> Product:
         return ConcreteProduct2()
 
 
