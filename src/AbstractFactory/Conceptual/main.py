@@ -53,10 +53,10 @@ class ConcreteFactory1(AbstractFactory):
     то время как внутри метода создается экземпляр конкретного продукта.
     """
 
-    def create_product_a(self) -> ConcreteProductA1:
+    def create_product_a(self) -> AbstractProductA:
         return ConcreteProductA1()
 
-    def create_product_b(self) -> ConcreteProductB1:
+    def create_product_b(self) -> AbstractProductB:
         return ConcreteProductB1()
 
 
@@ -67,10 +67,10 @@ class ConcreteFactory2(AbstractFactory):
     RU: Каждая Конкретная Фабрика имеет соответствующую вариацию продукта.
     """
 
-    def create_product_a(self) -> ConcreteProductA2:
+    def create_product_a(self) -> AbstractProductA:
         return ConcreteProductA2()
 
-    def create_product_b(self) -> ConcreteProductB2:
+    def create_product_b(self) -> AbstractProductB:
         return ConcreteProductB2()
 
 
