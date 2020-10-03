@@ -23,9 +23,9 @@ class SingletonMeta(type):
     метаклассом, поскольку он лучше всего подходит для этой цели.
     """
 
-    _instances = {}
+    _instance = None
 
-    def __call__(cls, *args, **kwargs):
+    def __call__(self, *args, **kwargs):
         """
         EN: Possible changes to the value of the `__init__` argument do not
         affect the returned instance.
@@ -33,10 +33,10 @@ class SingletonMeta(type):
         RU: Данная реализация не учитывает возможное изменение передаваемых
         аргументов в `__init__`.
         """
-        if cls not in cls._instances:
-            instance = super().__call__(*args, **kwargs)
-            cls._instances[cls] = instance
-        return cls._instances[cls]
+        if not self._instance:
+            self._instance = super().__call__(*args, **kwargs)
+    
+        return self._instance
 
 
 class Singleton(metaclass=SingletonMeta):
