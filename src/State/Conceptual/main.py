@@ -15,7 +15,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 
 
-class Context(ABC):
+class Context:
     """
     EN: The Context defines the interface of interest to clients. It also
     maintains a reference to an instance of a State subclass, which represents
