@@ -14,7 +14,7 @@ RU: Паттерн Строитель
 
 
 from __future__ import annotations
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod, property
 from typing import Any
 
 
@@ -27,7 +27,8 @@ class Builder(ABC):
     объектов Продуктов.
     """
 
-    @abstractproperty
+    @property
+    @abstractmethod
     def product(self) -> None:
         pass
 
