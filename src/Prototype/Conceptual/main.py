@@ -42,7 +42,7 @@ class SomeComponent:
 
         return new
 
-    def __deepcopy__(self, memo={}):
+    def __deepcopy__(self, memo=None):
         """
         Create a deep copy. This method will be called whenever someone calls
         `copy.deepcopy` with this object and the returned value is returned as
@@ -54,6 +54,8 @@ class SomeComponent:
         to all the `deepcopy` calls you make in the `__deepcopy__` implementation
         to prevent infinite recursions.
         """
+        if memo is None:
+            memo = {}
 
         # First, let's create copies of the nested objects.
         some_list_of_objects = copy.deepcopy(self.some_list_of_objects, memo)
