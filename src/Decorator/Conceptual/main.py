@@ -58,7 +58,7 @@ class Decorator(Component):
         self._component = component
 
     @property
-    def component(self) -> str:
+    def component(self) -> Component:
         """
         EN: The Decorator delegates all work to the wrapped component.
 
