@@ -87,8 +87,8 @@ class WordsCollection(Iterable):
     получения новых экземпляров итератора, совместимых с классом коллекции.
     """
 
-    def __init__(self, collection: List[Any] = []) -> None:
-        self._collection = collection
+    def __init__(self, collection: List[Any] = None) -> None:
+        self._collection = collection or []
 
     def __iter__(self) -> AlphabeticalOrderIterator:
         """
