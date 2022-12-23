@@ -12,12 +12,11 @@ RU: Паттерн Легковес
 между собой, вместо хранения одинаковых данных в каждом объекте.
 """
 
-
 import json
-from typing import Dict
+from typing import Dict, List
 
 
-class Flyweight():
+class Flyweight:
     """
     EN: The Flyweight stores a common portion of the state (also called
     intrinsic state) that belongs to multiple real business entities. The
@@ -30,16 +29,16 @@ class Flyweight():
     для каждого объекта) через его параметры метода.
     """
 
-    def __init__(self, shared_state: str) -> None:
+    def __init__(self, shared_state: List) -> None:
         self._shared_state = shared_state
 
-    def operation(self, unique_state: str) -> None:
+    def operation(self, unique_state: List) -> None:
         s = json.dumps(self._shared_state)
         u = json.dumps(unique_state)
         print(f"Flyweight: Displaying shared ({s}) and unique ({u}) state.", end="")
 
 
-class FlyweightFactory():
+class FlyweightFactory:
     """
     EN: The Flyweight Factory creates and manages the Flyweight objects. It
     ensures that flyweights are shared correctly. When the client requests a
@@ -54,11 +53,11 @@ class FlyweightFactory():
 
     _flyweights: Dict[str, Flyweight] = {}
 
-    def __init__(self, initial_flyweights: Dict) -> None:
+    def __init__(self, initial_flyweights: List) -> None:
         for state in initial_flyweights:
             self._flyweights[self.get_key(state)] = Flyweight(state)
 
-    def get_key(self, state: Dict) -> str:
+    def get_key(self, state: List) -> str:
         """
         EN: Returns a Flyweight's string hash for a given state.
 
@@ -67,7 +66,7 @@ class FlyweightFactory():
 
         return "_".join(sorted(state))
 
-    def get_flyweight(self, shared_state: Dict) -> Flyweight:
+    def get_flyweight(self, shared_state: List) -> Flyweight:
         """
         EN: Returns an existing Flyweight with a given state or creates a new
         one.
@@ -93,8 +92,12 @@ class FlyweightFactory():
 
 
 def add_car_to_police_database(
-    factory: FlyweightFactory, plates: str, owner: str,
-    brand: str, model: str, color: str
+    factory: FlyweightFactory,
+    plates: str,
+    owner: str,
+    brand: str,
+    model: str,
+    color: str,
 ) -> None:
     print("\n\nClient: Adding a car to database.")
     flyweight = factory.get_flyweight([brand, model, color])
@@ -115,22 +118,22 @@ if __name__ == "__main__":
     на этапе инициализации приложения.
     """
 
-    factory = FlyweightFactory([
-        ["Chevrolet", "Camaro2018", "pink"],
-        ["Mercedes Benz", "C300", "black"],
-        ["Mercedes Benz", "C500", "red"],
-        ["BMW", "M5", "red"],
-        ["BMW", "X6", "white"],
-    ])
+    car_factory = FlyweightFactory(
+        [
+            ["Chevrolet", "Camaro2018", "pink"],
+            ["Mercedes Benz", "C300", "black"],
+            ["Mercedes Benz", "C500", "red"],
+            ["BMW", "M5", "red"],
+            ["BMW", "X6", "white"],
+        ]
+    )
 
-    factory.list_flyweights()
+    car_factory.list_flyweights()
 
-    add_car_to_police_database(
-        factory, "CL234IR", "James Doe", "BMW", "M5", "red")
+    add_car_to_police_database(car_factory, "CL234IR", "James Doe", "BMW", "M5", "red")
 
-    add_car_to_police_database(
-        factory, "CL234IR", "James Doe", "BMW", "X1", "red")
+    add_car_to_police_database(car_factory, "CL234IR", "James Doe", "BMW", "X1", "red")
 
     print("\n")
 
-    factory.list_flyweights()
+    car_factory.list_flyweights()
