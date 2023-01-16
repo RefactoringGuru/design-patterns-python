@@ -32,7 +32,7 @@ class Subject(ABC):
     EN: The Subject interface declares a set of methods for managing
     subscribers.
 
-    RU: Интферфейс издателя объявляет набор методов для управлениями
+    RU: Интерфейс издателя объявляет набор методов для управлениями
     подписчиками.
     """
 
