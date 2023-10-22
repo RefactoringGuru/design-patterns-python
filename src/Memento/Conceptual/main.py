@@ -16,10 +16,10 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from datetime import datetime
 from random import sample
-from string import ascii_letters, digits
+from string import ascii_letters
 
 
-class Originator():
+class Originator:
     """
     EN: The Originator holds some important state that may change over time. It
     also defines a method for saving the state inside a memento and another
@@ -57,7 +57,8 @@ class Originator():
         self._state = self._generate_random_string(30)
         print(f"Originator: and my state has changed to: {self._state}")
 
-    def _generate_random_string(self, length: int = 10) -> None:
+    @staticmethod
+    def _generate_random_string(length: int = 10) -> str:
         return "".join(sample(ascii_letters, length))
 
     def save(self) -> Memento:
@@ -128,7 +129,7 @@ class ConcreteMemento(Memento):
         return self._date
 
 
-class Caretaker():
+class Caretaker:
     """
     EN: The Caretaker doesn't depend on the Concrete Memento class. Therefore,
     it doesn't have access to the originator's state, stored inside the memento.
