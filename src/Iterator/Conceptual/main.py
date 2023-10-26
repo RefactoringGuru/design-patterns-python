@@ -13,7 +13,7 @@ RU: Паттерн Итератор
 
 from __future__ import annotations
 from collections.abc import Iterable, Iterator
-from typing import Any, List
+from typing import Any
 
 
 """
@@ -60,7 +60,7 @@ class AlphabeticalOrderIterator(Iterator):
         self._reverse = reverse
         self._position = -1 if reverse else 0
 
-    def __next__(self):
+    def __next__(self) -> Any:
         """
         EN: The __next__() method must return the next item in the sequence. On
         reaching the end, and in subsequent calls, it must raise StopIteration.
@@ -87,8 +87,12 @@ class WordsCollection(Iterable):
     получения новых экземпляров итератора, совместимых с классом коллекции.
     """
 
-    def __init__(self, collection: List[Any] = []) -> None:
-        self._collection = collection
+    def __init__(self, collection: list[Any] | None = None) -> None:
+        self._collection = collection or []
+
+
+    def __getitem__(self, index: int) -> Any:
+        return self._collection[index]
 
     def __iter__(self) -> AlphabeticalOrderIterator:
         """
@@ -98,10 +102,10 @@ class WordsCollection(Iterable):
         RU: Метод __iter__() возвращает объект итератора, по умолчанию мы
         возвращаем итератор с сортировкой по возрастанию.
         """
-        return AlphabeticalOrderIterator(self._collection)
+        return AlphabeticalOrderIterator(self)
 
     def get_reverse_iterator(self) -> AlphabeticalOrderIterator:
-        return AlphabeticalOrderIterator(self._collection, True)
+        return AlphabeticalOrderIterator(self, True)
 
     def add_item(self, item: Any):
         self._collection.append(item)
