@@ -107,7 +107,7 @@ class WordsCollection(Iterable):
     def get_reverse_iterator(self) -> AlphabeticalOrderIterator:
         return AlphabeticalOrderIterator(self, True)
 
-    def add_item(self, item: Any):
+    def add_item(self, item: Any) -> None:
         self._collection.append(item)
 
 
