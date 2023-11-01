@@ -116,7 +116,7 @@ class AbstractProductB(ABC):
     одной и той же конкретной вариации.
     """
     @abstractmethod
-    def useful_function_b(self) -> None:
+    def useful_function_b(self) -> str:
         """
         EN: Product B is able to do its own thing...
 
@@ -125,7 +125,7 @@ class AbstractProductB(ABC):
         pass
 
     @abstractmethod
-    def another_useful_function_b(self, collaborator: AbstractProductA) -> None:
+    def another_useful_function_b(self, collaborator: AbstractProductA) -> str:
         """
         EN: ...but it also can collaborate with the ProductA.
 
