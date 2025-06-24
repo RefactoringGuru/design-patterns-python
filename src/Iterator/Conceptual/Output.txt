@@ -1,9 +1,9 @@
 Straight traversal:
-First
-Second
-Third
+A
+B
+C
 
 Reverse traversal:
-Third
-Second
-First
+C
+B
+A

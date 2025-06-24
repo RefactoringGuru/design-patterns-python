@@ -10,7 +10,6 @@ RU: Паттерн Итератор
 объектов, не раскрывая их внутреннего представления.
 """
 
-
 from __future__ import annotations
 from collections.abc import Iterable, Iterator
 from typing import Any
@@ -58,9 +57,22 @@ class AlphabeticalOrderIterator(Iterator):
     def __init__(self, collection: WordsCollection, reverse: bool = False) -> None:
         self._collection = collection
         self._reverse = reverse
-        self._position = -1 if reverse else 0
+        self._sorted_items = None  # Will be set on first __next__ call
+        self._position = 0
 
     def __next__(self) -> Any:
+        """
+        EN: Optimization: sorting happens only when the first items is actually
+        requested.
+
+        RU: Оптимизация: сортировка происходит только тогда, когда первый элемент
+        впервые запрашивается.
+        """
+        if self._sorted_items is None:
+            self._sorted_items = sorted(self._collection._collection)
+            if self._reverse:
+                self._sorted_items = list(reversed(self._sorted_items))
+
         """
         EN: The __next__() method must return the next item in the sequence. On
         reaching the end, and in subsequent calls, it must raise StopIteration.
@@ -69,12 +81,10 @@ class AlphabeticalOrderIterator(Iterator):
         последовательности. При достижении конца коллекции и в последующих
         вызовах должно вызываться исключение StopIteration.
         """
-        try:
-            value = self._collection[self._position]
-            self._position += -1 if self._reverse else 1
-        except IndexError:
+        if self._position >= len(self._sorted_items):
             raise StopIteration()
-
+        value = self._sorted_items[self._position]
+        self._position += 1
         return value
 
 
@@ -120,9 +130,9 @@ if __name__ == "__main__":
     # классах Коллекций, в зависимости от уровня косвенности, который вы хотите
     # сохранить в своей программе.
     collection = WordsCollection()
-    collection.add_item("First")
-    collection.add_item("Second")
-    collection.add_item("Third")
+    collection.add_item("B")
+    collection.add_item("A")
+    collection.add_item("C")
 
     print("Straight traversal:")
     print("\n".join(collection))
